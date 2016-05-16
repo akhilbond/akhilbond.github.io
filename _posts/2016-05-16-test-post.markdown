@@ -7,3 +7,5 @@ categories: jekyll update
 
 
 This is my first post on the site.
+
+This `text` will be highlighted on the site.
