@@ -133,6 +133,7 @@ $on-laptop:        800px;
 }
 #cssmenu > ul > li.active > a {
   color: #dff2fa;
+  font-size: 16px;
 }
 #cssmenu > ul > li:hover > a,
 #cssmenu > ul > li > a:hover {
@@ -205,7 +206,7 @@ $on-laptop:        800px;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: #3db2e1;
+  background: #696969;
 }
 #cssmenu.small-screen #menu-button:after {
   content: "";
