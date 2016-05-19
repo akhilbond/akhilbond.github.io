@@ -12,7 +12,7 @@ $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
-$spacing-unit:     30px;
+$spacing-unit:     15px;
 
 $text-color:       #111;
 $background-color: #fdfdfd;
@@ -23,9 +23,9 @@ $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    800px;
+$content-width:    850px;
 
-$on-palm:          700px;
+$on-palm:          auto;
 $on-laptop:        800px;
 
 
