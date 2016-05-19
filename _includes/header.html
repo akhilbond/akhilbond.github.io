@@ -1,8 +1,10 @@
 <header class="site-header">
 
   <div class="wrapper">
+  <div id = 'cssmenu'>
+    <ul>
+  <li class='active'><a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a></li>
 
-  <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
     <nav class="site-nav">
          <a href="#" class="menu-icon">
@@ -13,12 +15,30 @@
         </svg>
       </a>
 
-      <div class="trigger">
-        {% for my_page in site.pages %}
-          {% if my_page.title %}
-          <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
-          {% endif %}
-        {% endfor %}
+      <div id = 'cssmenu'>
+
+
+        <ul>
+
+           <li>  <a class="page-link" href="/Prog Languages/">Programming Languages</a></li>
+           <li>  <a class="page-link" href="/blog/">Blog</a></li>
+           <li><a class="page-link" href="/about/">About</a></li>
+        </ul>
+
+
+
+
+
+
+      </ul>
+      </div>
+
+
+
+
+
+
+
       </div>
     </nav>
 
