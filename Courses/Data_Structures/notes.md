@@ -29,7 +29,9 @@ One important aspect of computer programming is checking how long the program ta
 - Compiler used
 - Inputs
 - Programmer abilities
+
 <br>
+
 ### How to analyze program runtime(Big O)
 - Count number of operations executed instead of time elapsed
 - The operation count of a program is a function of the input size
