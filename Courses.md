@@ -16,7 +16,7 @@ Some of the languages that I know are :
 
 
 <h1><u>Courses</u></h1>
-- [Data Structures](data_structures/)
+- [Data Structures](Data_Structures/)
 - Computer Architecture
 - Linear Systems and Signals
 - Electronic Devices
