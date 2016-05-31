@@ -50,6 +50,8 @@ One important aspect of computer programming is checking how long the program ta
 - The number of operations depends on("is a function of") the number/size of inputs
     - Number of operations = f(input)
 
+    
+
 - Average case
   - Computing average cost:
     - What determines the cost?
