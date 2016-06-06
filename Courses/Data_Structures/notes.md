@@ -107,3 +107,5 @@ public class IntNode{
   }
 }
 ~~~
+
+- The above code is an example of a class called "IntNode" which is used in linked lists.
