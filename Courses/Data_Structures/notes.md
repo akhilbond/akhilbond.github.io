@@ -50,7 +50,7 @@ One important aspect of computer programming is checking how long the program ta
 - The number of operations depends on("is a function of") the number/size of inputs
     - Number of operations = f(input)
 
-    
+
 
 - Average case
   - Computing average cost:
@@ -86,3 +86,9 @@ return i < n;
 - Assume a 50% chance of target not being found
     - If target is found, then there is an equal probability at each position
     - Average Cost = [P(found) * cost if found] + [P(not found) * cost if not found]
+
+
+### Linked lists
+- Linked lists store an ordered list of data terms, all of the same type.
+- Most of the time we don't worry about what is 1^st, 2^nd, etc., but it can be more efficient to care about "What comes next?"
+- Each entry in the list contains a node. A node is a pointer from the current data element to the next.
