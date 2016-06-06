@@ -108,4 +108,6 @@ public class IntNode{
 }
 ~~~
 
-- The above code is an example of a class called "IntNode" which is used in linked lists.
+- The above code is an example of a class called "IntNode" which is used in linked lists. In the declaration statement of the IntNode called Next is a reference to an IntNode object.
+- The following is an example of a two-IntNode list.
+![Two-IntNode List Example](/resources/two-intnode_list.png)
