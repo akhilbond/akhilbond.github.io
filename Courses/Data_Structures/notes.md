@@ -90,5 +90,20 @@ return i < n;
 
 ### Linked lists
 - Linked lists store an ordered list of data terms, all of the same type.
-- Most of the time we don't worry about what is 1^st, 2^nd, etc., but it can be more efficient to care about "What comes next?"
+- Most of the time we don't worry about what is 1st, 2nd, 3rd, etc., but it can be more efficient to care about "What comes next?"
 - Each entry in the list contains a node. A node is a pointer from the current data element to the next.
+
+#### The IntNode Class
+
+~~~
+public class IntNode{
+
+  int data;
+  IntNode next;
+
+  public IntNode(int data, IntNode next){
+    this.data = data;
+    this.next = next;
+  }
+}
+~~~
