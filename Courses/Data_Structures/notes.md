@@ -112,5 +112,5 @@ public class IntNode{
 - The following is an example of a two-IntNode list.
 
 --
-![Two-IntNode List Example](/resources/images/data_structures/two-intnode_list.png)
+![Two-IntNode List Example](\resources\images\data_structures\two-intnode_list.png)
 --
