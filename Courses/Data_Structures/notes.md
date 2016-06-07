@@ -4,7 +4,7 @@ title: Data Structures
 permalink: /Courses/Data_Structures/
 mathjax: true
 ---
-## Prerequisite Topics:
+### Prerequisite Topics:
 
 #### You are expected know these topic before beginning the course.
 
@@ -17,6 +17,7 @@ mathjax: true
 - Using objects
 - Big-O worst case analysis
 
+<br>
 <br>
 
 ### What is a Data Structure?
@@ -31,6 +32,7 @@ One important aspect of computer programming is checking how long the program ta
 - Programmer abilities
 
 <br>
+<br>
 
 ### How to analyze program runtime(Big O)
 - Count number of operations executed instead of time elapsed
@@ -38,6 +40,7 @@ One important aspect of computer programming is checking how long the program ta
 - Among inputs of the same size, count the worst case number of comparisons and the best case number of comparisons. Then this is used to find the Big O of the program by focusing on the large inputs and ignoring constants and other multiples.
 - Big O notation is O(f), which means the Big O of a function that was found using worst case analysis.
 
+<br>
 <br>
 
 ### Big O Analysis Review
@@ -87,6 +90,8 @@ return i < n;
     - If target is found, then there is an equal probability at each position
     - Average Cost = [P(found) * cost if found] + [P(not found) * cost if not found]
 
+    <br>
+    <br>
 
 ### Linked lists
 - Linked lists store an ordered list of data terms, all of the same type.
@@ -117,4 +122,4 @@ public class IntNode{
 - The front is where the data structure begins and points to the first node which contains the integer 42 as data. Then there is a pointer which points it to next node which has the integer 63 as data. After that the program will follow the next pointer to next node/data location, but in this case, the pointer points to null. This lets the program know that it has reached the end of the linked-list.
 - Using this data structure is beneficial when compared to an array in program efficiency because it is much easier to add an element anywhere in the list.
 
-- [Linked List Example](Data_Structures/Linked_List_Example/)
+### [Linked List Example](/Courses/Data_Structures/Linked_List_Example/)
