@@ -123,3 +123,20 @@ public class IntNode{
 - Using this data structure is beneficial when compared to an array in program efficiency because it is much easier to add an element anywhere in the list.
 
 ### [Linked List Example](/Courses/Data_Structures/Linked_List_Example/)
+
+<h4><u>Operations that can be performed on Linked lists</u></h4>
+
+- Insert at head
+- Remove at head
+- Insert at given node
+- Remove at given node
+- Find last
+- Insert at end
+- Remove last
+- Find element i
+- Find by data
+
+### Circular lists
+- Circular lists are linked lists that have a front and the cycle through all of the entries. This means that the pointers go from the first data location to the last data location and then the pointer from the last location points to the first data location, inherently making a circle. Below is an example of a simple circular list.
+
+![Two-IntNode List Example](/resources/images/data_structures/circular_lists.PNG)
