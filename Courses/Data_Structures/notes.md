@@ -114,3 +114,4 @@ public class IntNode{
 ![Two-IntNode List Example](/resources/images/data_structures/two-intnode_list.PNG)
 
 - The front is where the data structure begins and points to the first node which contains the integer 42 as data. Then there is a pointer which points it to next node which has the integer 63 as data. After that the program will follow the next pointer to next node/data location, but in this case, the pointer points to null. This lets the program know that it has reached the end of the linked-list.
+- Using this data structure is beneficial when compared to an array in program efficiency because it is much easier to add an element anywhere in the list.
