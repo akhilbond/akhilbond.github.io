@@ -227,9 +227,9 @@ return headData;} ...
 
 ~~~
 Node<String> n1 = new Node<String>;
-....
+...
 String name = n1.getHead( );
-~~~`
+~~~
 
 <h4><u>Operations that can be performed on Linked lists</u></h4>
 
