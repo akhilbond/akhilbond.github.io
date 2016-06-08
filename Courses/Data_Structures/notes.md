@@ -206,6 +206,31 @@ public class StringLL {
 }
 ~~~
 
+- Since the code for different types of lists are similar, we don't have to specify if it is an integer list, string list, etc. We can use something called a generic list. The code for a generic list is shown below.
+
+~~~
+public class Node<E> {
+ private E data;
+ private Node<E> next;
+
+ public Node<E>(E dat, Node<E> nxt){
+data = dat;
+next = nxt;
+ }
+
+ public E getHead(Node<E> head){
+ E headData = head.data;
+return headData;} ...
+~~~
+
+- This is the code to create the generic linked list object which can then be reffered to in another method or program with the code sample below.
+
+~~~
+Node<String> n1 = new Node<String>;
+....
+String name = n1.getHead( );
+~~~`
+
 <h4><u>Operations that can be performed on Linked lists</u></h4>
 
 - Insert at head
@@ -222,3 +247,18 @@ public class StringLL {
 - Circular lists are linked lists that have a front and the cycle through all of the entries. This means that the pointers go from the first data location to the last data location and then the pointer from the last location points to the first data location, inherently making a circle. Below is an example of a simple circular list.
 
 ![Two-IntNode List Example](/resources/images/data_structures/circular_lists.PNG)
+
+- In the beginning of the linked list section, we learned how to add to a linked list by adding to the tail('end'), we can also add terms to the list at the beginning or the head. The example code to do that is below.
+
+~~~
+if(people == null){
+ people = new Node(newName, null);
+ people.next = people;
+ } else {
+ Node newNode= new Node(newName,
+ people.next);
+ people.next = newNode;
+ }
+~~~
+
+- This can be useful in circular lists because then you can write the code to delete the head in your code, which will then create a circular list.
