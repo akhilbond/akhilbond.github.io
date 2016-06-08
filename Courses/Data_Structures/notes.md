@@ -114,7 +114,7 @@ public class IntNode{
 
 ~~~
 
-- The above code is an example of a class called "IntNode" which is used in linked lists. In the declaration statement of the IntNode called Next is a reference to an IntNode object.
+- The above code is an example of a class called "IntNode" which is used in linked lists. In the declaration statement of the IntNode called Next is a reference to an IntNode object. This code is just the code to create one node in the linked list.
 - The following is an example of a two-IntNode list.
 
 ![Two-IntNode List Example](/resources/images/data_structures/two-intnode_list.PNG)
@@ -123,6 +123,55 @@ public class IntNode{
 - Using this data structure is beneficial when compared to an array in program efficiency because it is much easier to add an element anywhere in the list.
 
 ### [Linked List Example Code](/Courses/Data_Structures/Linked_List_Example/)
+
+
+- IntLL Class example code
+
+~~~
+public class IntLL {
+
+	IntNode front;
+	int size;
+
+	public IntLL( ){
+		front = null;
+		size = 0;
+	}
+	public String toString( ){
+		String result = "IntLL: [ ";
+		for (IntNode ptr = front; ptr != null; ptr = ptr.next){
+			result = result + ptr.data+" ";
+		}
+		result = (result + "]");
+		return result;
+	}
+	public static void main(String[] args) {
+		IntLL l1 = new IntLL( );
+		IntLL l2 =  new IntLL( );
+		l2.front = new IntNode(30, new IntNode(50,null));
+		l2.size = 2;
+		System.out.println(l1);
+		System.out.println(l2);
+	}
+}
+~~~
+
+- The above is code that is for generating a linked list with integers as data. Specifically, the above code is a linked list with 2 nodes. So that means there are two data locations in the linked list.
+
+- If the node was to have a string, then we would not change much, but just change all of the data types in the code from integer to string. It's that simple!
+- Below is the code for a node with string data
+
+~~~
+public class StringNode{
+  String data;
+  StringNode next;
+
+  public StringNode(String data, StringNode next){
+    this.data = data;
+    this.next = next;
+  }
+}
+~~~
 
 <h4><u>Operations that can be performed on Linked lists</u></h4>
 
