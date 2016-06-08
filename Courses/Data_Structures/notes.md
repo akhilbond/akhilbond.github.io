@@ -125,7 +125,7 @@ public class IntNode{
 ### [Linked List Example Code](/Courses/Data_Structures/Linked_List_Example/)
 
 
-- IntLL Class example code
+- IntLL Class example code - this is inherently just code for a linked list with 2 integer nodes.
 
 ~~~
 public class IntLL {
@@ -170,6 +170,39 @@ public class StringNode{
     this.data = data;
     this.next = next;
   }
+}
+~~~
+
+- The code for a linked list with string data is similar to the code for the linked list with integer data, but we have to change the data types in the code from integer to string. The code for a two node string linked list is below.
+
+~~~
+public class StringLL {
+
+	StringNode front;
+	int size;
+
+	public StringLL( ){
+		front = null;
+		size = 0;
+	}
+
+	public String toString( ){
+		String result = "StringLL: [ ";
+		for (StringNode ptr = front; ptr != null; ptr = ptr.next){
+			result = result + ptr.data+" ";
+		}
+		result = (result + "]");
+		return result;
+	}
+
+	public static void main(String[] args) {
+		StringLL l1 = new StringLL( );
+		StringLL l2 =  new StringLL( );
+		l2.front = new StringNode("Mary", new StringNode("Joe",null));
+		l2.size = 2;
+		System.out.println(l1);
+		System.out.println(l2);
+	}
 }
 ~~~
 
