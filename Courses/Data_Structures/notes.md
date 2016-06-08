@@ -156,7 +156,7 @@ public class IntLL {
 }
 ~~~
 
-- The above is code that is for generating a linked list with integers as data. Specifically, the above code is a linked list with 2 nodes. So that means there are two data locations in the linked list.
+- The above is code that is for generating a linked list with integers as data. Specifically, the above code is a linked list with 2 nodes. So that means there are two data locations in the linked list. The unique thing about this code is that it is an object that represents the linked list. So, this list can be referenced in other codes easily.
 
 - If the node was to have a string, then we would not change much, but just change all of the data types in the code from integer to string. It's that simple!
 - Below is the code for a node with string data
