@@ -321,4 +321,16 @@ if(people == null){
 
 ### Recursion with linked lists
 
--
+- Recursive code contains a base case where the code jumps out of the recursive cycle and also calls it's self. This can be used to run a method again on it's self several times or until a certain value is achieved.
+
+<h4><u>Recursive operations that can be performed on Linked lists</u></h4>
+
+- Insert new node at end of lists
+
+- Insert new node after a target node
+
+- Insert new node before a target node
+
+- Delete the first occurrence of a target node
+
+- Delete the node at a specified index
