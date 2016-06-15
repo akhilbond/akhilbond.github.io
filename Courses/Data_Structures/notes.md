@@ -245,9 +245,11 @@ String name = n1.getHead( );
 
 - [Traverse the List](/Courses/Data_Structures/travrselist/)
 
-- Insert at end
+- [Insert at End](/Courses/Data_Structures/insertatend/)
 
-- Remove last
+- [Remove nodes greater than target](/Courses/Data_Structures/removegreater/)
+
+- [Remove nodes greater than target](/Courses/Data_Structures/removeless/)
 
 - [Search for element x](/Courses/Data_Structures/search/)
 
