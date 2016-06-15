@@ -234,9 +234,9 @@ String name = n1.getHead( );
 <h4><u>Operations that can be performed on Linked lists</u></h4>
 
 - [Insert at Head](/Courses/Data_Structures/insertathead/)
-- Remove at head
+- [Remove the Head](/Courses/Data_Structures/removethehead/)
 - Insert at given node
-- Remove at given node
+- [Remove at given node](/Courses/Data_Structures/removeatnode/)
 - Find last
 - Insert at end
 - Remove last
