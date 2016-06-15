@@ -314,3 +314,11 @@ if(people == null){
 ~~~
 
 - This can be useful in circular lists because then you can write the code to delete the head in your code, which will then create a circular list.
+
+### Doubly Linked lists
+
+- A doubly linked list is a list where each node has a pointer to the next node and also the previous node. This can be useful in optimizing code when you have to search for the node which is right before another target node or going backwards through a list.
+
+### Recursion with linked lists
+
+-
