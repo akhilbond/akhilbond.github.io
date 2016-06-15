@@ -253,6 +253,11 @@ String name = n1.getHead( );
 
 - [Search for element x](/Courses/Data_Structures/search/)
 
+### Generics
+
+- Linked lists can be made of several types of data, such as integers, strings, etc. However the data types throughout the list are the same. Instead of creating a linked list generation code for each type of object would be impossible because there are an infinite number of unique objects that can be created. This is why generics are used. I creates a generic code to create a linked list with any type of object, but with the same code.
+
+- If you want to make a generic linked list that contains a primative type of variable(integer,double, float), you must use a wrapper class for that type of variable, such as Integer, Float, Double, etc.
 
 ### Circular lists
 - Circular lists are linked lists that have a front and the cycle through all of the entries. This means that the pointers go from the first data location to the last data location and then the pointer from the last location points to the first data location, inherently making a circle. Below is an example of a simple circular list.
