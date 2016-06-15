@@ -259,6 +259,42 @@ String name = n1.getHead( );
 
 - If you want to make a generic linked list that contains a primative type of variable(integer,double, float), you must use a wrapper class for that type of variable, such as Integer, Float, Double, etc.
 
+- An example of the code for a generic linked list is shown below
+
+~~~
+public class List<T> {
+Node<T> front;
+int size;
+public List() {
+front = tail = null;
+Size = 0;
+}
+void add(T data){}
+void remove(T data){}
+void update(T oldData, T newData){}
+boolean contains(T data) { }
+}
+public class Node<T> {
+T data;
+public Node(T data, Node next) {
+this.data = data;
+this.next = next;
+}
+}
+~~~
+
+- The <T> in basically a place holder for the data type of the data/node of the list. You can you use any letter in between the carots, but it can only be ONE character.
+
+- The code for the implementation of the above linked list is below
+
+~~~
+/* Using generic List */
+public static void main(String[] args) {
+List<String> strList = new List<>();
+strList.add(“First”);
+}
+~~~
+
 ### Circular lists
 - Circular lists are linked lists that have a front and the cycle through all of the entries. This means that the pointers go from the first data location to the last data location and then the pointer from the last location points to the first data location, inherently making a circle. Below is an example of a simple circular list.
 
