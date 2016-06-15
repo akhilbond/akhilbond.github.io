@@ -237,11 +237,11 @@ String name = n1.getHead( );
 
 - [Remove the Head](/Courses/Data_Structures/removethehead/)
 
-- Insert at given node
+- [Insert after given node](/Courses/Data_Structures/insertafternode/)
 
 - [Remove at given node](/Courses/Data_Structures/removeatnode/)
 
-- Find last
+- [Find Last](/Courses/Data_Structures/findlast/)
 
 - [Traverse the List](/Courses/Data_Structures/travrselist/)
 
@@ -249,7 +249,7 @@ String name = n1.getHead( );
 
 - Remove last
 
-- Find element i
+- [Search for element x](/Courses/Data_Structures/search/)
 
 - Find by data
 
