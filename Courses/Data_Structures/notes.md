@@ -253,7 +253,6 @@ String name = n1.getHead( );
 
 - [Search for element x](/Courses/Data_Structures/search/)
 
-- Find by data
 
 ### Circular lists
 - Circular lists are linked lists that have a front and the cycle through all of the entries. This means that the pointers go from the first data location to the last data location and then the pointer from the last location points to the first data location, inherently making a circle. Below is an example of a simple circular list.
