@@ -334,3 +334,5 @@ if(people == null){
 - Delete the first occurrence of a target node
 
 - Delete the node at a specified index
+
+- Search for a node with target Data
