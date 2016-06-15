@@ -233,7 +233,7 @@ String name = n1.getHead( );
 
 <h4><u>Operations that can be performed on Linked lists</u></h4>
 
-- [Insert at Head](/Courses/Data_Structures/insertathead.md/)
+- [Insert at Head](/Courses/Data_Structures/insertathead/)
 - Remove at head
 - Insert at given node
 - Remove at given node
