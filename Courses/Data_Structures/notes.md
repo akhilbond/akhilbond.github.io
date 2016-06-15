@@ -243,6 +243,8 @@ String name = n1.getHead( );
 
 - Find last
 
+- [Traverse the List](/Courses/Data_Structures/travrselist/)
+
 - Insert at end
 
 - Remove last
