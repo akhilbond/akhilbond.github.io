@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Insert at Head
-permalink: /Courses/Data_Structures/Linked_List_Example/
+permalink: /Courses/Data_Structures/insertathead/
 mathjax: true
 ---
 ~~~
