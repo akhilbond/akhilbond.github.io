@@ -336,7 +336,3 @@ if(people == null){
 - Delete the node at a specified index
 
 - Search for a node with target Data
-
-
-
-EDITS!~!~!
