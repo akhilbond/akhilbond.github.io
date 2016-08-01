@@ -336,3 +336,28 @@ if(people == null){
 - Delete the node at a specified index
 
 - Search for a node with target Data
+
+<br>
+<br>
+
+### Stacks
+
+- A stack is a data structure which follows the rule of first in, last out.
+
+<br>
+<br>
+
+### Queues
+
+- A queue is a data structure which follows the rule of first in, first out.
+
+<br>
+<br>
+
+### Trees
+
+- A tree is a data structure, where a tree contains nodes which have children which contain the next data values.
+
+### Binary Search Trees
+
+- A binary search tree, is a tree where the data of the left child is less than the data of the parent, and the right child data is greater than the data of the parent.
