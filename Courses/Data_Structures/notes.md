@@ -358,6 +358,7 @@ if(people == null){
 
 - A tree is a data structure, where a tree contains nodes which have children which contain the next data values.
 
-_#### Binary Search Trees_
+#### Binary Search Trees
+---
 
 - A binary search tree, is a tree where the data of the left child is less than the data of the parent, and the right child data is greater than the data of the parent.
