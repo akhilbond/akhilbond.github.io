@@ -342,25 +342,83 @@ if(people == null){
 
 ### Stacks
 
-- A stack is a data structure which follows the rule of first in, last out.
+- A stack is a data structure which follows the rule of first in, last out. This means, what ever enters the stack first goes to the bottom, and the next entry get placed on top. Then, the stack is evaluated from top to bottom.
+
+~~~
+Terms for a stack
+- Push -> add an element to the stack
+- Pop -> remove the top element from the stack
+~~~
 
 <br>
 <br>
 
 ### Queues
 
-- A queue is a data structure which follows the rule of first in, first out.
+- A queue is a data structure which follows the rule of first in, first out. This means, what ever enters the queue first is in the first position, and then everything else that is added after are added behind the first element in chronological order. The first element that is added to the queue is evaluated first, and then the next, and the next, and so forth.
+
+~~~
+Terms for a Queue
+- Enqueue -> add an element to the queue
+- Dequeue -> remove the first element in the queue
+~~~
+
+- Queues are represented by circular linked lists. This is because you add nodes after the tail and remove nodes from the tail.
 
 <br>
 <br>
 
 ### Trees
 
-- A tree is a data structure, where a tree contains nodes which have children which contain the next data values.
+- A tree is a data structure, where a tree contains nodes which have children which contain the next data values. A node in a tree can have any number of children.
+
+~~~
+Terms for a tree
+- Root -> The node from which the tree originates.
+- Subtree -> A tree which is located/rooted in a larger tree. Each node in a tree is a root of a subtree.
+- Leaf -> A node with no children
+~~~
 
 <h4><u>Binary Search Trees</u></h4>
 
+- A binary tree is a tree where every node in the tree has no more than two children.
+
 - A binary search tree, is a tree where the data of the left child is less than the data of the parent, and the right child data is greater than the data of the parent.
+
+<h4><u>Traversing a Binary Search Tree</u></h4>
+
+- There are two ways popular ways to traverse a binary search tree. Those are DFS(Depth First Search) and BFS(Breath First Search).
+
+<h4><u>Depth First Search</u></h4>
+
+- Depth First Search is a method of searching a BST which will visit every node at least once, in a recursive manner.
+- This search is applied using recursion.
+
+~~~
+Pseudo Code for DFS
+- Keep going to the left child until the next left child is null.
+- Then return to the parent of that node and check if it has a right child.
+- If it has a right child, the go right one node.
+- Keep recursing through the entire tree by following these instructions.
+~~~
+
+<h4><u>Breath First Search</u></h4>
+
+- Breath First Search is a method of searching a BST which will visit every node at least once, but it will go level by level through the tree from the root to the leaves.
+- This search is implemented by using a queue.
+
+~~~
+Pseudo Code for BFS
+- Enqueue the root
+- Dequeue one element and enqueue the children of that node.
+- Keep recursing through the entire tree by following these instructions.
+~~~
+
+<h4><u>Balancing Trees</u></h4>
+
+- A tree is considered balanced if the height of the right subtree of the node and the height of the left subtree of the node have a difference of zero or one.
+
+- If a tree is not balanced, it can be balanced by rotations of specific subtrees within the tree.
 
 <h4><u>AVL Trees</u></h4>
 
