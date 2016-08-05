@@ -385,6 +385,8 @@ Terms for a tree
 
 - A binary search tree, is a tree where the data of the left child is less than the data of the parent, and the right child data is greater than the data of the parent.
 
+- If input data for the tree is sorted, then the BST becomes similar to a linked list. It would not be beneficial to use a tree in this senario.
+
 <h4><u>Traversing a Binary Search Tree</u></h4>
 
 - There are two ways popular ways to traverse a binary search tree. Those are DFS(Depth First Search) and BFS(Breath First Search).
