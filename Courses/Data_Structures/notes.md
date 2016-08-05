@@ -402,6 +402,27 @@ Pseudo Code for DFS
 - Keep recursing through the entire tree by following these instructions.
 ~~~
 
+- Traversing a BST with DFS has a O(n) efficiency, because the algorithm will visit every node in the tree at least once.
+
+- Example code for general DFS function on a BST
+
+{% highlight Java %}
+//Test Comment
+DFS(Node n){
+  if(n == null){
+    return;
+  }
+  else{
+    if(n.leftsubtree != null){
+      DFS(N.leftsubtree);
+    }
+    if(n.rightsubtree != null){
+      DFS(n.rightsubtree);
+    }
+  }
+}
+{% endhighlight %}
+
 <h4><u>Breath First Search</u></h4>
 
 - Breath First Search is a method of searching a BST which will visit every node at least once, but it will go level by level through the tree from the root to the leaves.
@@ -418,8 +439,8 @@ Pseudo Code for BFS
 
 - A tree is considered balanced if the height of the right subtree of the node and the height of the left subtree of the node have a difference of zero or one.
 
-- If a tree is not balanced, it can be balanced by rotations of specific subtrees within the tree.
+- If a tree is not balanced, it can be balanced by rotations of specific subtrees within the tree. A great article about rotations from the University of Florida can be found by clicking [HERE](http://www.cise.ufl.edu/~nemo/cop3530/AVL-Tree-Rotations.pdf).
 
 <h4><u>AVL Trees</u></h4>
 
-- AVL trees are trees, but are binary search trees and are also balanced.
+- AVL trees are balanced binary search trees.
