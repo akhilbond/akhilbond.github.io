@@ -425,6 +425,38 @@ DFS(Node n){
 }
 {% endhighlight %}
 
+<h4><u>Types of Depth First Search</u></h4>
+
+- There are three types of Depth First Searches
+  - Preorder
+
+    ~~~
+    Algorithm for Preorder
+    - Visit node (Interact with node data)
+    - Go left
+    - Go right
+    ~~~
+
+  - Inorder
+
+    ~~~
+    Algorithm for Inorder
+    - Go left
+    - Visit node (Interact with node data)
+    - Go right
+    ~~~
+
+  - Postorder
+
+    ~~~
+    Algorithm for Postorder
+    - Go left
+    - Go right
+    - Visit node (Interact with node data)
+    ~~~
+
+- [Generic code for Traversing a linked with the three different DFS](/Courses/Data_Structures/traversalgeneric/)
+
 <h4><u>Breath First Search</u></h4>
 
 - Breath First Search is a method of searching a BST which will visit every node at least once, but it will go level by level through the tree from the root to the leaves.
