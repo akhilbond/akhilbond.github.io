@@ -11,8 +11,10 @@ Some of the languages that I know are :
 - CSS
 - Java
 - C++
-- Labview
+- LabVIEW
 - SAS
+- C
+- VHDL
 
 
 <h1><u>Courses</u></h1>
