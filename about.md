@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-My name is `Akhil Bondlela` and I am studying Electrical and Computer Engineering at Rutgers University.
+My name is `Akhil Bondlela` and I am studying Electrical and Computer Engineering and Computer Science at Rutgers University.
 
 -This is a bullet
 

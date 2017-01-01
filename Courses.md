@@ -15,6 +15,8 @@ Some of the languages that I know are :
 - SAS
 - C
 - VHDL
+- ROS
+- Python
 
 
 <h1><u>Courses</u></h1>
@@ -23,3 +25,9 @@ Some of the languages that I know are :
 - Linear Systems and Signals
 - Electronic Devices
 - Professionalism and Ethics
+
+<h1><u>Miscellaneous</u></h1>
+
+- [ROS](ROS/)
+- Python
+- C++
