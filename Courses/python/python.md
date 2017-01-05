@@ -145,3 +145,58 @@ print "I have " + str(2) + " apples!"
 name = "John"
 print "A name is %s" % (name)
 ```
+
+## Date and Time
+- Python can keep track of when something happens through the use of datetime.
+- The code below can enable use to use the datetime feature of Python by importing datetime
+
+```Python
+from datetime import datetime
+```
+
+- We can use the function ``` datetime.now()``` to retrieve the current date and time
+- An example of printing the current date and time is
+
+```Python
+from datetime import datetime
+print datetime.now()
+```
+
+- To retrieve certain parts of date, we can use the methods below
+
+```Python
+from datetime import datetime
+now = datetime.now()
+
+current_year = now.year
+current_month = now.month
+current_day = now.day
+current_hour = now.hour
+current_minute = now.minute
+current_second = now.second
+```
+### Printing the date in a specific format
+
+- We can print the date in a specific format by using the '%s' operator for formatting strings
+- An example of a formatted date
+
+```Python
+from datetime import datetime
+now = datetime.now()
+
+print '%s/%s/%s' % (now.month, now.day, now.year)
+# The statement prints: month/day/year
+```
+
+## Conditionals & Flow Control
+
+- Comparators
+
+| Symbol | Meaning  |
+| :------------- | :------------- |
+|      ==        | equal to       |
+|      !=        | not equal      |
+|      <         | less than      |
+|      <=       |less than or equal |
+|      >         | greater than      |
+|      >=        | greater than or equal |
