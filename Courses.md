@@ -29,5 +29,5 @@ Some of the languages that I'm familiar with are :
 <h1><u>Miscellaneous</u></h1>
 
 - [ROS](ROS/)
-- [Python](python/)
+- [Python](Python/)
 - C++
