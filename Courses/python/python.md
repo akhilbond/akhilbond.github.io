@@ -208,7 +208,7 @@ print '%s/%s/%s' % (now.month, now.day, now.year)
 
 ## Conditionals & Flow Control
 
-- Comparators
+### Comparators
 
 | Symbol | Meaning  |
 | :------------- | :------------- |
@@ -218,3 +218,32 @@ print '%s/%s/%s' % (now.month, now.day, now.year)
 |      <=       |less than or equal |
 |      >         | greater than      |
 |      >=        | greater than or equal |
+
+### Boolean operators
+
+<u> AND OPERATIONS </u>
+
+| Argument A | Argument B | Solution |
+| :------------- | :------------- | :------------- |
+| True | True | True |
+| True | False | False |
+| False | True | False |
+| False | False | False |
+
+<u> OR OPERATIONS </u>
+
+| Argument A | Argument B | Solution |
+| :------------- | :------------- | :------------- |
+| True | True | True |
+| True | False | True |
+| False | True | True |
+| False | False | False |
+
+<u> NOT OPERATIONS </u>
+
+| Argument A | Solution |
+| :------------- | :------------- |
+| True | False|
+| False | True |
+
+### Conditional Statement Syntax
