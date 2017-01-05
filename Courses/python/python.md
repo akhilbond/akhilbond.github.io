@@ -18,7 +18,7 @@ permalink: /Courses/Python/
 - It is like a light switch which can either be on(True) or off(False).
 - When assigning a value to a boolean variable, the value(True or False) must be capitalized.
 - An example of a boolean is
-```Python
+```python
 a = True
 b = False
 ```
