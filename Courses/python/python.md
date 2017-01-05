@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Python
-permalink: /Courses/python/
+permalink: /Courses/Python/
 ---
 # Python Tutorial
 
