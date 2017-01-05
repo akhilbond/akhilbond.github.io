@@ -215,7 +215,7 @@ print '%s/%s/%s' % (now.month, now.day, now.year)
 |      ==        | equal to       |
 |      !=        | not equal      |
 |      <         | less than      |
-|      <=       |less than or equal |
+|      <=       | less than or equal |
 |      >         | greater than      |
 |      >=        | greater than or equal |
 
