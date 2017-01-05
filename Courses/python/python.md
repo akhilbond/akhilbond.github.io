@@ -3,18 +3,21 @@ layout: page
 title: Python
 permalink: /Courses/Python/
 ---
+
 # Python Tutorial
 
 ## Variables
+
 - Variables are used to store pieces of data with a specific names
 - Unlike other programming languages, there is no need to specify the data type of the variable during declaration.
 - An example of a variable in python is
 
 ```python
- var = 5
+var = 5
 ```
 
 ## Booleans
+
 - A boolean is a data type which stores the value of True and False.
 - It is like a light switch which can either be on(True) or off(False).
 - When assigning a value to a boolean variable, the value(True or False) must be capitalized.
@@ -26,17 +29,19 @@ b = False
 ```
 
 ## Whitespace
+
 - In python, the whitespace is the editor which is used to structure code.
 - It is always good to properly indent your code with a tab or 4 spaces. The contents in methods and loops should be indented to improve code readability
 
 ## Comments
+
 - Comments make your code easier to read and follow.
 - Comments also make it easy to collaborate with other on your code.
 - The use of the pound sign(#) is used for single line comments in python.
 - An example of a single line comment is
 
 ```python
- # This is a comment
+# This is a comment
 ```
 
 - The use of a set of three quotation marks(""") is used for a multiline comments
@@ -50,6 +55,7 @@ multiline comment.
 ```
 
 ## Math
+
 - Examples of basic mathematics operators in python are
 
 ```python
@@ -76,6 +82,7 @@ remainder = 3 % 2  #The remainder of 3/2 is 1
 ```
 
 ## Strings
+
 - A string is a data type which is used to store letters, numbers, and/or symbols
 - An example of a string is
 
@@ -127,6 +134,7 @@ str(2) # Turns any non-string character into a string
 - Certain methods are used without a dot, such as len("String") or str(2), and other methods are used with a dot, such as "String".lower() and "String".upper(). This is because methods that use dot notation only work with strings. the upper() method only works with strings, however len() and str() methods can work with other data types.
 
 ### Printing Strings
+
 - Printing strings and variables are identical. Putting the word "print" in your code will print the value to your console.
 - An example of printing is
 
@@ -136,7 +144,8 @@ print hello
 ```
 
 ### String concatenation
-- The "+" operator between strings will <i>add</i> them together, or concatenating/combining them together
+
+- The "+" operator between strings will _add_ them together, or concatenating/combining them together
 - An example of concatenation is
 
 ```python
@@ -144,6 +153,7 @@ string = "Hello" + "world" + "!"
 ```
 
 ### Explicit String Conversion
+
 - Sometimes we need to concatenate a string with something that is not a string. To do this, we must convert the non-string data to a string using the str() method.
 - An example of explicit string conversion is
 
@@ -153,6 +163,7 @@ print "I have " + str(2) + " apples!"
 ```
 
 ### String formatting
+
 - When trying to print a variable in a string, there is an easier way than concatenating the strings together.
 - The '%' operator after a string is used to combine a string with variables. Replacing the '%' operator with '%s' will allow combining and string with string variables
 - Examples of the use of the '%s' operator is
@@ -171,7 +182,7 @@ print "A name is %s" % (name)
 from datetime import datetime
 ```
 
-- We can use the function ``` datetime.now()``` to retrieve the current date and time
+- We can use the function `datetime.now()` to retrieve the current date and time
 - An example of printing the current date and time is
 
 ```python
@@ -210,40 +221,40 @@ print '%s/%s/%s' % (now.month, now.day, now.year)
 
 ### Comparators
 
-| Symbol | Meaning  |
-| :------------- | :------------- |
-|      ==        | equal to       |
-|      !=        | not equal      |
-|      <         | less than      |
-|      <=       | less than or equal |
-|      >         | greater than      |
-|      >=        | greater than or equal |
+Symbol | Meaning
+:----- | :--------------------
+==     | equal to
+!=     | not equal
+<      | less than
+<=     | less than or equal
+>      | greater than
+>=     | greater than or equal
 
 ### Boolean operators
 
 <u> AND OPERATIONS </u>
 
-| Argument A | Argument B | Solution |
-| :------------- | :------------- | :------------- |
-| True | True | True |
-| True | False | False |
-| False | True | False |
-| False | False | False |
+Argument A | Argument B | Solution
+:--------- | :--------- | :-------
+True       | True       | True
+True       | False      | False
+False      | True       | False
+False      | False      | False
 
 <u> OR OPERATIONS </u>
 
-| Argument A | Argument B | Solution |
-| :------------- | :------------- | :------------- |
-| True | True | True |
-| True | False | True |
-| False | True | True |
-| False | False | False |
+Argument A | Argument B | Solution
+:--------- | :--------- | :-------
+True       | True       | True
+True       | False      | True
+False      | True       | True
+False      | False      | False
 
 <u> NOT OPERATIONS </u>
 
-| Argument A | Solution |
-| :------------- | :------------- |
-| True | False|
-| False | True |
+Argument A | Solution
+:--------- | :-------
+True       | False
+False      | True
 
 ### Conditional Statement Syntax
