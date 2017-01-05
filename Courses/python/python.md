@@ -219,12 +219,6 @@ print '%s/%s/%s' % (now.month, now.day, now.year)
 |      >         | greater than      |
 |      >=        | greater than or equal |
 
-</br>
-</br>
-</br>
-</br>
-</br>
-
 ### Boolean operators
 
 <u> AND OPERATIONS </u>
