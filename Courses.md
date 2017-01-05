@@ -5,7 +5,7 @@ permalink: /Courses/
 ---
 This is page is for a overview of programming languages.
 
-Some of the languages that I know are :
+Some of the languages that I'm familiar with are :
 
 - HTML
 - CSS
@@ -29,5 +29,5 @@ Some of the languages that I know are :
 <h1><u>Miscellaneous</u></h1>
 
 - [ROS](ROS/)
-- Python
+- [Python](python/)
 - C++
