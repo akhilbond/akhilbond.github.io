@@ -316,7 +316,7 @@ b = --a;    // a is now 1, b is also 1
 Symbol | Meaning
 :----- | :--------------------
 &      | Bitwise AND
-|      | Bitwise OR
+\|      | Bitwise OR
 ^      | Bitwise XOR
 <<     | Left Shift
 >>     | Right Shift
@@ -386,4 +386,3 @@ Operator | Example      | Meaning
 /=       | a /= 5       | a = a / 5
 %=       | a %= 5       | a = a % 5
 &&=      | a &&= 5      | a = a && 5
-\||=    | a \||= 5      | a = a \|| 5
