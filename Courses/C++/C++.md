@@ -334,3 +334,56 @@ Symbol | Meaning
 ```
 
 - In the above code, if the condition is true, then expression1 is evaluated, else expression 2 is evaluated
+
+## Comma Operator
+
+- The comma operator has a left-to-right associativity. This means that two expressions separated are evaluated left to right.
+
+- The comma operator is mainly used for obfuscation of code
+
+- An example of a comma operator is
+
+```C++
+#include <iostream>
+using namespace std;
+int main ()
+{
+    int i = 1, b = 2, c= 3;
+
+    //comma as a SEPERATOR
+    i = b, c;
+    //prints the value of i and then a new line
+    cout<<i<<"\n";
+
+    // bracket makes its one expression.
+    // all expression in brackets will evaluate but
+    // i will be assigned with right expression (left-to-right associativity)
+    //comma as an  OPERATOR
+    i = (b, c);
+    cout<<i<<"\n";
+
+    return 0;
+}
+```
+
+- The output of the code above is
+```
+2
+3
+```
+
+## Sizeof Operator
+
+- The sizeof operator returns the size of the operand
+
+## C++ Shorthand
+
+Operator | Example      | Meaning
+:------- | :----------  | :----------
++=       | a += 5       | a = a + 5
+-=       | a -= 5       |  a = a - 5
+\*=      | a \*= 5      |  a = a*5
+/=       | a /= 5       | a = a / 5
+%=       | a %= 5       | a = a % 5
+&&=      | a &&= 5      | a = a && 5
+||=      | a ||= 5      | a = a || 5
