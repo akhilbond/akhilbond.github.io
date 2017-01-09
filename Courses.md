@@ -10,13 +10,12 @@ Some of the languages that I'm familiar with are :
 - HTML
 - CSS
 - Java
-- C++
+- [C++](C++/)
 - LabVIEW
 - SAS
 - C
 - VHDL
-- ROS
-- Python
+- [Python](Python/)
 
 
 <h1><u>Courses</u></h1>
@@ -30,4 +29,4 @@ Some of the languages that I'm familiar with are :
 
 - [ROS](ROS/)
 - [Python](Python/)
-- C++
+- [C++](C++/)

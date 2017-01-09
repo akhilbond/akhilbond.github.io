@@ -4,7 +4,7 @@ title: Python
 permalink: /Courses/Python/
 ---
 
-# Python Tutorial
+# <u>Python Tutorial</u>
 
 ## Variables
 
