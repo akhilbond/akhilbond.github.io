@@ -271,7 +271,7 @@ True       | False      | False
 False      | True       | False
 False      | False      | False
 
-<u> OR OPERATIONS (||)</u>
+<u> OR OPERATIONS (\|\|)</u>
 
 Argument A | Argument B | Solution
 :--------- | :--------- | :-------
@@ -386,4 +386,4 @@ Operator | Example      | Meaning
 /=       | a /= 5       | a = a / 5
 %=       | a %= 5       | a = a % 5
 &&=      | a &&= 5      | a = a && 5
-||=      | a ||= 5      | a = a || 5
+\|\|=    | a \|\|= 5      | a = a \|\| 5
