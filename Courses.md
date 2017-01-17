@@ -27,6 +27,7 @@ Some of the languages that I'm familiar with are :
 
 - [Software Engineering](Software_Engineering/)
 - Discrete Mathematics
+- [Intro to Computer Systems](Intro_to_comp_systems)
 
 <h1><u>Miscellaneous</u></h1>
 
