@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Python
+title: C++
 permalink: /Courses/C++/
 ---
 # <u>C++ Tutorial</u>
