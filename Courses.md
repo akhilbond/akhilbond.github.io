@@ -25,6 +25,9 @@ Some of the languages that I'm familiar with are :
 - Electronic Devices
 - Professionalism and Ethics
 
+- [Software Engineering](Software_Engineering/)
+- Discrete Mathematics
+
 <h1><u>Miscellaneous</u></h1>
 
 - [ROS](ROS/)
