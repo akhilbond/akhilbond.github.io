@@ -4,8 +4,6 @@ title: C++
 permalink: /Courses/C++/
 ---
 
-# <u>C++ Tutorial</u>
-
 ## Overview
 - C++ is a programming language developed by Bjarne Stroustrup in 1979 at Bell Labs.
 
