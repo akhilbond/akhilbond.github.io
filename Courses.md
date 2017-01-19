@@ -29,6 +29,7 @@ Some of the languages that I'm familiar with are :
 - Discrete Mathematics
 - [Intro to Computer Systems](Intro_to_comp_systems)
 - [Intro to Microeconomics](micro)
+- [Discrete Mathematics](discrete)
 
 <h1><u>Miscellaneous</u></h1>
 
