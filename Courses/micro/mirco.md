@@ -10,9 +10,9 @@ permalink: /Courses/micro/
 
 - [Syllabus](syllabus.pdf)
 
-### Opportunity Cost
+<hr>
 
-- The cost of choosing a specific opportunity and also the cost/value of the opportunities that you did not take.
+- **Opportunity cost** - The cost of choosing a specific opportunity and also the cost/value of the opportunities that you did not take.
 - An example of this is
 
 ```
