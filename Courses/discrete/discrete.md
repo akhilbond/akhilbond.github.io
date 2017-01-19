@@ -5,7 +5,7 @@ permalink: /Courses/discrete/
 mathjax: true
 ---
 
-- __The sylabus and other important details of the course are located at the [Course Website](https://www.cs.rutgers.edu/~allender/205/)__
+- __The syllabus and other important details of the course are located at the [Course Website](https://www.cs.rutgers.edu/~allender/205/)__
 
 ## Set Theory
 
