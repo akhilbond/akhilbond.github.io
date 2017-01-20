@@ -26,7 +26,7 @@ APPLICATION (USER)
 
 - The abstract view of a computer system
 
-![Abstract View of the components of a Computer System](C:\Users\akhil\Documents\GitHub\akhilbondlela.github.io\Courses\Intro_to_comp_systems\Abstract_view_of_comp_sys.PNG)
+![Abstract View of the components of a Computer System](/resources/images/intro_to_comp_systems/Abstract_view_of_comp_sys.PNG)
 
 - The users interface with the system and applications
 - The operating system manages the applications and the resources the applications use
