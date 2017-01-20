@@ -74,8 +74,9 @@ $$ \overline{A \cup B} = \overline{A} \cap \overline{B} \quad \mathbf{OR} \quad 
 - **Function** $$ (f : A \to B) $$ - A mapping of the *Domain*(Inputs) to the *Codomain*(Outputs)
 - The **Range** of a function is
 
+
 $$ Range(f) = f(A) = \{f(x) : x \subseteq A \} $$
 
 - A function, f, mapping A to B is a subset of $$ AxB $$
-- Any subset of $$ AxB $$ set, for every $$ x \subseteq A $$, there is exactly one $$ y \in B $$
+- Any subset of $$ AxB $$ set, for every $$ x \subseteq A $$ , there is exactly one $$ y \in B $$
   - In other words, each input has one output
