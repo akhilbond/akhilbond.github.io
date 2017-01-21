@@ -4,7 +4,7 @@ title: Software Engineering
 permalink: /Courses/Software_Engineering/
 ---
 
-- <u>**Further details of the course are available at the [Course webpage](http://www.ece.rutgers.edu/~marsic/Teaching/SE/)**</u>
+- **Further details of the course are available at the <u>[Course webpage](http://www.ece.rutgers.edu/~marsic/Teaching/SE/)</u>**
 
 <hr>
 
