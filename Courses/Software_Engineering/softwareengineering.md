@@ -4,9 +4,36 @@ title: Software Engineering
 permalink: /Courses/Software_Engineering/
 ---
 
-- **Further details of the course are available at the [Course webpage](http://www.ece.rutgers.edu/~marsic/Teaching/SE/)**
+- __**Further details of the course are available at the [Course webpage](http://www.ece.rutgers.edu/~marsic/Teaching/SE/)**__
 
 <hr>
+
+## Introduction
+
+- Things that are complex are not always complicated.
+  - Complex means that it is composed of many simple components that are related to one another
+  - Complicated means that it is not well understood, or explained
+
+- **First Law of Software Engineering** - A software engineer should be willing to learn the problem domain(A problem cannot be solved without fully understanding it first)
+
+- A software engineer's task is to understand how the system needs to interact with the user or environment so that the customer's requirement is met and design the software-to-be
+- The programmer's task is to implement the software-to-be which is designed by the software engineer
+
+- **Second Law of Software Engineering** - Software should be written for people first
+
+## Software Development Methods
+
+- Method = work strategy - how the work gets done in the team
+- Some development methods are:
+  - Waterfall - Unidirectional, finish this step before moving to the next
+  - Iterative & Incremental - Develop increment of functionality, repeat in a feedback loop
+  - Agile - User feedback is essential; feedback loops on several levels of granularity
+
+## Software Measurement
+
+- What is a measure?
+  - Project(a developer's work), for budgeting and scheduling
+  - Product, for quality assessment
 
 ## Software Configuration Management
 
