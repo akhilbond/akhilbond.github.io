@@ -87,3 +87,38 @@ permalink: /Courses/Software_Engineering/
 
 - **git revert** - undoes a committed snapshot
 - **git reset** - works backward from current commit
+
+## Why do we want to subdivide problems/projects
+
+- A common problem solving strategy is "divide and conquer"
+- Labor division within the developers team
+- Support flexibility and future evolution by decoupling unrelated parts, so each can evolve separately
+
+## Dividing work (for Dummies)
+- List the components of the system
+- Each sub-group of one or more team members is assigned to a different component to develop
+- "Chain" organization - every link is critical. If any link fails, the whole project fails.
+
+<u>Downfalls</u>
+- If one group does not produce work, the entire project falls apart.
+- Each team only learns about their component whether it be database, UI, algorithms, etc.
+
+
+#### Another *more efficient* way to divide work
+- Instead of dividing project by components, we can divide them by problems
+- Each project team will be responsible for a functionality in the project
+- They will also learn all of the components of their function, such as UI, database, algorithms, etc.
+- If one group does not perform, then the entire project does not fall apart
+
+<br>
+
+<br>
+
+- Computer/software helps the user to achieve a business goal in the problem domain.
+- Problem domains can be virtual or physical
+- Problem types
+  1. Transforming a virtual object to another(e.g. document format conversion)
+  2. Modifying a virtual object(e.g. document editing)
+  3. Automatically controlling behavior of a physical object(e.g. thermostat)
+  4. Manually controlling behavior of physical object(e.g. drone flying)
+  4. Observing behavior of a physical object(e.g. traffic monitoring)
