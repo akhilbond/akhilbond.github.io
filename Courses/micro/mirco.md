@@ -127,3 +127,65 @@ Answer = $40
 | Furthest | 60 min          | X                             | 60        | 275     | 335 + X       |
 
 - We use the derived total costs for each airport and then calculate the Marginal Cost for each airport compared to the Furthest. To compare them we would put them in the equation (Airport A Total Cost) <= (Total Cost of Airport B).
+
+#### Difference between Opportunity Cost and TOTAL Opportunity Cost
+
+- You have $1,000 to by a guitar. Instead of buying the guitar, you can invest in stock. This will earn 5% on investment -> $50. What is the total opportunity cost and the opportunity cost of buying the guitar?
+
+  - Total Opportunity Cost = $1,050(includes the $1,000 investment and the amount of money lost by not choosing the other option)
+  - The Opportunity Cost = $50(the cost difference of no choosing the other option compared to the option you chose)
+
+#### Some examples of Optimal choice
+
+<u>**Example 1**</u>
+
+```
+1. Trade-offs and Opportunity Cost
+You spend your time between surfing the web and working. Surfing the web pays
+nothing(but you get some pleasure) while the hourly wage from working is $8.40.
+When you have money, you spend it on music: each song you download costs $1.20.
+Obviously, the more time you spend surfing the web, the fewer songs you can
+afford. What is the marginal cost(also known as the opportunity cost), measured
+by the number of songs you have to give up, if spending one more hour
+on surfing the web? Explain your answer.
+```
+
+<u>Answer</u>
+- Surfing the web for 1 hour is, essentially, losing $8.40.
+  - In terms of songs, each song is $1.20, so surfing the web for 1 hour is losing 7 songs
+
+<u>**Example 2**</u>
+
+```
+2. Optimization in Difference(Marginal Analysis)
+The table below shows the commuting time and the apartment rent at four
+locations you are considering to live.
+
+(a) If the monthly rent at the Close location is $1,900 and if you value your
+time at $40/hour, is it worth choosing Close over Very Close? What location is
+optimal for you? Be sure to apply optimization in difference.
+
+(b) Suppose that you value your time at $60/hour and you optimal choice is
+Close. Then the monthly rent at Close must be at most $_____. Explain your
+answer.
+
+```
+
+| Location   | Commuting Time / mo. | Rent / mo. |
+| :--------- | :------------------- | :--------- |
+| Very close | 4 hours              | $2,200     |
+| Close      | 11 hours             | ???        |
+| Far        | 20 hours             | $1,400     |
+| Very Far   | 32 hours             | $1,000     |
+
+<u>Answer</u>
+
+- (a)
+  - Close = (11 hours) * ($40/hour) + $1,900
+  - Very Close = (4 hours) * ($40/hour) + $2,200
+  - Close is the optimal choice
+
+- (b)
+  - Close = (11 hours) * ($60/hour) + X = $660 + X
+  - Very Close = (4 hours) * ($60/hour) + $2,200 = $2,440
+  - ($660+X) <= $2,440 -> X <= $1,780
