@@ -82,17 +82,10 @@ APPLICATION (USER)
     - Memory
     - Write-back
 
-
 #### The Program Counter
 
   - Where the "next instruction" is held in the machine
   - In a special memory cell in the CPU, called the program counter (PC)
-
-#### Memory Indirection
-
-- How do we access array elements efficiently if all we can do is name a cell?
-  - Modify the operand to allow for fetching and operand "through" a memory location
-- This is called indirection
 
 #### Registers
 
@@ -103,3 +96,21 @@ APPLICATION (USER)
   - Registers only
   - Registers & 1 memory operand
   - Any combinations of registers and memory
+
+
+## Process Management
+
+  - A **process** is a program in execution. It is a unit of work within the system. Program is a **passive** entity, process is an **active** entity.
+  - Typically a system has many processes, some user, some operating system running concurrently on one or more CPU's
+
+## Memory Indirection
+
+  - How do we access array elements efficiently if all we can do is name a cell?
+    - Modify the operand to allow for fetching and operand "through" a memory location
+  - This is called indirection
+
+## Abstracting the machine
+- Bare hardware provides a computation device
+  - How can multiple uses share the expensive hardware between themselves?
+  - Answer: Software is to give the illusion of having it all to yourself while actually sharing it with others.
+- This software is the **Operating System**.
