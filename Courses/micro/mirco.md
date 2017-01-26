@@ -188,4 +188,4 @@ answer.
 - (b)
   - Close = (11 hours) * ($60/hour) + X = $660 + X
   - Very Close = (4 hours) * ($60/hour) + $2,200 = $2,440
-  - ($660+X) <= $2,440 -> X <= $1,780
+  - ($660+X) </= $2,440, which makes X </= $1,780
