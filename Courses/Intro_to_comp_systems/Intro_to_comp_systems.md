@@ -173,6 +173,6 @@ APPLICATION (USER)
 - PIO has less overhead than DMA, however DMA is more efficient at moving data
 - The DMA will cause an interrupt when the CPU is needed
 
-#### DIfference between DMA and PIO
+#### Difference between DMA and PIO
 
 - In PIO the CPU polls the status register to see when it is needed, however the DMA will not need polling and cause an interrupt when it needs the CPU
