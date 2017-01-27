@@ -99,12 +99,12 @@ permalink: /Courses/Software_Engineering/
 - Each sub-group of one or more team members is assigned to a different component to develop
 - "Chain" organization - every link is critical. If any link fails, the whole project fails.
 
-<u>Downfalls</u>
+###### Downfalls
 - If one group does not produce work, the entire project falls apart.
 - Each team only learns about their component whether it be database, UI, algorithms, etc.
 
 
-#### Another *more efficient* way to divide work
+## Another *more efficient* way to divide work
 - Instead of dividing project by components, we can divide them by problems
 - Each project team will be responsible for a functionality in the project
 - They will also learn all of the components of their function, such as UI, database, algorithms, etc.
@@ -122,3 +122,48 @@ permalink: /Courses/Software_Engineering/
   3. Automatically controlling behavior of a physical object(e.g. thermostat)
   4. Manually controlling behavior of physical object(e.g. drone flying)
   4. Observing behavior of a physical object(e.g. traffic monitoring)
+
+  <br>
+
+## <u>Requirements Engineering</u>
+
+## Requirements Process
+
+![Requirements Process](/resources/images/software_engineering/requirements_process.png)
+
+#### 1. Requirements Gathering
+
+- Helps the customer to define what is required: what is to be accomplished, how the system will fit into the needs of the business, and how the system will be used on a daily basis
+
+#### 2. Requirements Analysis
+
+- Refining and modifying the gathered requirements
+
+#### 3. Requirements Specification
+
+- Documenting the system requirements in a semiformal or formal manner to ensure clarity
+
+## Requirements and Specification
+
+- Customer
+  - Provides requirements for the projected system
+- Software Engineer
+  - Documents the requirements that were provided by the customer
+  - Programs a system for those requirements
+  - Updates the customer and provides him with the final system and the list of specifications(requirements) that are satisfied
+
+## Requirement documentation
+
+- Requirements should have unique identifiers
+- Each requirement should have a priority
+- Each requirement must have a description of what the system must do
+  - Using common language which can be understood by people who are not familiar with software development
+- The IEEE is currently trying to standardize the way that software is documented
+- Commonly referred to as FRS documents - <b>F</b>unctional <b>R</b>equirement <b>S</b>pecification documents
+
+## User Stories
+
+- Contains user-roles in the system, capabilities of the system, and business value of the feature
+- Focusses on the user/business benefits and not the functions of the system
+- User stories also have unique identifiers, priorities(size), and a description per use case
+- This is used commonly in agile development - based on an iteration basis
