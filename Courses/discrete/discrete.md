@@ -80,3 +80,7 @@ $$ Range(f) = f(A) = \{f(x) : x \subseteq A \} $$
 - A function, f, mapping A to B is a subset of $$ AxB $$
 - Any subset of $$ AxB $$ set, for every $$ x \subseteq A $$ , there is exactly one $$ y \in B $$
   - In other words, each input has one output
+
+
+- **Graph** - a mapping of the inputs and outputs of a function
+- Let $$ f = A \to B $$, then the graph of f is $$ f = \{ \( a, f \( a \) \) : a \in A \} $$

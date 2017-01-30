@@ -2,6 +2,7 @@
 layout: page
 title: Microeconomics
 permalink: /Courses/micro/
+mathjax: true
 ---
 
 # Microeconomics
@@ -189,3 +190,47 @@ answer.
   - Close = (11 hours) * ($60/hour) + X = $660 + X
   - Very Close = (4 hours) * ($60/hour) + $2,200 = $2,440
   - ($660+X) </= $2,440, which makes X </= $1,780
+
+## Chapter 4: Demand, Supply, Equilibrium
+
+- **Demand**
+  - You (the consumer) have a demand for a good or service if ...
+    1. you can afford it
+      - Depends on price of the object and your budget
+    2. you plan to buy it
+      - Depends on prices of other related goods
+      - Depends on preferences/taste
+
+- **Demand Curve** - A curve which shows the relationship between the price of a good and the quantity demanded.
+  -  When you draw a demand curve, measure price on the vertical axis
+  - * If income, prices of other related goods and/or your preferences change, you have to draw a new demand curve
+  - An example of a demand curve is
+
+  ![Example Demand Curve](/resources/images/intro_to_micro/demand_curve_example.PNG)
+
+  - If the income of the consumer goes up, then the demand curve would shift right
+
+- **The Law of Demand**
+  - If the price of the product goes up, the quantity demand goes down
+
+<u>**Example 1 - (Shifting the Demand Curve; Shifting the supply curve; Supply and Demand in
+  Equilibrium; Curve shifting in Competitive Equilibrium)**</u>
+
+```
+1.
+  Consider the market for airlines and assume that it is a perfectly Competitive
+  market. Assume the US domestic market is currently at equilibrium with a
+  total of 642 million ticketed passengers per year at a price of $375 a ticket.
+  (You can find these statistics on the website of the United States Department
+    of Transportation). Suppose a study is released that documents large
+  negative health effects of increased exposure to radiation from flying. In
+  addition, suppose there is a sudden increase in the price of jet fuel. If you
+  are asked by a newspaper to comment on these developments, would you predict
+  that the average price per ticket would increase or decrease or that we would
+  be unable to be certain? Would you predict that the number of ticketed
+  passengers would increase or decrease or that we would need additional info?
+```
+
+<u>**Answer**</u>
+
+-
