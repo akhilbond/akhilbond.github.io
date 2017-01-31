@@ -167,3 +167,71 @@ permalink: /Courses/Software_Engineering/
 - Focusses on the user/business benefits and not the functions of the system
 - User stories also have unique identifiers, priorities(size), and a description per use case
 - This is used commonly in agile development - based on an iteration basis
+
+## Hierarchical Organization of Software
+
+- Software is not one long list of program statements, but it has a structure.
+- A general structure of this is
+
+![Hierarchical Organization of Software](/resources/images/software_engineering/software_tower.png)
+
+## Software Architecture
+
+- **Software Architecture** - a set of *high-level decisions* that determine the structure of the solution
+- Decisions use well-known solutions that are proven to work for similar problems
+- Software architecture is **not** a phase of development
+
+#### Key concerns of Software Architecture
+
+- System decomposition
+  - "How to break up the system?"
+  - "Do we have all the necessary pieces?"
+- Cross-cutting concerns
+  - broad-scoped qualities or properties of the system
+  - tradeoffs among the qualities
+- Conceptual integrity
+
+#### Architecture vs. Design
+
+- __Architecture__ focuses on non-functional requirements and decomposition of functional requirements
+- __Design__ focuses on implementing the functional requirements
+
+#### Well-known Architecture styles
+
+- World wide web - REST(Representational State Transfer)
+- UNIX shell scripting - Pipe-and-Filter
+- Client/Server
+- Central Repository
+- Layered(or Multi-tiered)
+- Peer-to-peer
+- Model-View-Controller
+
+#### Constituent parts for architecture styles
+
+- **Components**
+  - Processing elements that "do the work"
+- **Connectors**
+  - Enable communication among components
+- **Interfaces**
+  - Connection points on components and connectors
+- **Configurations**
+  - Arrangements of components and connectors that form an architecture
+
+#### Model-View-Controller Architecture Style
+
+- **Model** - holds all the data, state and application logic. Oblivious to the View and Controller. Provides API to retrieve state and send notifications of state changes to the "observer"
+- **View** - gives user a presentation of the Model. Gets its data directly from the Model
+- **Controller** - Takes user input and figures out what it means to the Model
+
+![Model-View-Controller](/resources/images/software_engineering/model-view-controller.png)
+
+#### Module/Subsystem Views
+
+- Decomposition View
+  - Top-down refinement
+- Dependency View
+  - How parts relate to one another
+- Layered View
+  - Special case of dependency view
+- Class View
+  - "domain-model" in OOA and "class-diagram" in OOD
