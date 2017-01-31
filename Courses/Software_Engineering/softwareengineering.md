@@ -218,7 +218,6 @@ permalink: /Courses/Software_Engineering/
   - Arrangements of components and connectors that form an architecture
 
 #### Model-View-Controller Architecture Style
-
 - **Model** - holds all the data, state and application logic. Oblivious to the View and Controller. Provides API to retrieve state and send notifications of state changes to the "observer"
 - **View** - gives user a presentation of the Model. Gets its data directly from the Model
 - **Controller** - Takes user input and figures out what it means to the Model
