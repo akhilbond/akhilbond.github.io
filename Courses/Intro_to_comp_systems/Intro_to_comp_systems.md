@@ -217,10 +217,70 @@ APPLICATION (USER)
   - Mac OS X kernel is partially based on Mach
 - Communication takes place between user modules using message passing
 
+## Operating System Services
+
+- Program Execution
+- I/O Operations
+- File Systems
+- Communication
+- Resource Allocation
+- Accounting
+- Error Detection
+- Protection and Security
+- GUI (Graphical User Interface)
+- CLI (Command Line Interface)
+- Batch
+
 ## Modules
 
 - Many modern Operating Systems implement **loadable kernel modules**
 
-## Process and Threads
+## Memory allocation
 
-- 
+- When a program is put in the "ready" queue for the OS, the OS will allocate and make the program into a process
+  - The difference between a program and a process is that, a program is a set of instructions, but a process is running and has memory allocated to it which it is executing the lines of the program
+
+- Each variable must be assigned a storage class
+- Global (static) Variables
+  - Allocated in the "Globals" region at compile
+- Method local variables and parameters
+  - Allocate on stack
+- Dynamically created objects
+  - Allocate from heap
+  - Objects live beyond invocation of a method if the memory is not freed
+  - Garbage collected when no longer "living"
+- The pointer to the next instruction to be executed is stored in a special register called PC(Program Counter)
+  - Variables are also cached in registers
+
+## Processes
+
+- What is a Process?
+  - A system abstraction for the set of resources required for executing a program
+  - A running instance of a program
+- The OS maintains the process state per process:
+  - Identification: processes, parent, user, group, etc.
+  - Execution Contexts: registers, Threads
+  - Address Space: Virtual Memory
+  - I/O State: file handles(file system), communication endpoints(network), etc.
+  - Accounting Information
+- For each process, the state is maintained in a *process control block(PCB)*
+  - This is just data in the OS data space
+
+#### Process Creation
+- How to create a process?
+  - System call - fork();
+- In UNIX, a process can create another process using the fork() system call
+  - An example of the fork command is
+
+```C
+//Creates a new process
+//Fork returns the Program ID of the child process to the parent process
+int pid = fork();
+```
+
+- The creating process is called the parent and the new process is called the child
+- The child process is created as a copy of the parent process(process image and process control structure) except for the identification and scheduling state
+  - The parent and the child processes run in two different address spaces
+  - By default, the memory is not shared between parent and child
+  - Process creation is expensive because of this copying of the parent process
+- The exec() call is provided for the newly created process to run a different program than that of the parent
