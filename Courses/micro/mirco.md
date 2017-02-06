@@ -18,7 +18,7 @@ mathjax: true
 - An example of this is
 
 ```
-Senario 1
+Scenario 1
 ---------
 A summer course runs for the whole summer. The course fees are $1,300.
 If you don't take the course, you could work at Job A which pays $7000 OR Job B
@@ -28,7 +28,7 @@ Opportunity cost of taking the course: $8,300 (course fee + highest forgone
 alternative) -> Took the course and forgo the Jobs money(only Job A because
 it is the highest and you could only choose one Job out of the two)
 
-Senario 2
+Scenario 2
 ---------
 A summer course runs for the whole summer. The course fees are $1,300.
 If you don't take the course, you could work at Job A which pays $7000 AND Job B
@@ -38,14 +38,14 @@ second.
 Opportunity cost or taking the course: $14,300 (course fee + highest forgone
 alternatives) -> Took the course and forgo the Jobs money
 
-Senario 3
+Scenario 3
 ---------
 A summer course runs for half the summer. The course fees are $1,300.
 If you don't take the course, you could work at Job A which pays $7000 OR Job B which pays $6000. Both courses take the entire summer.
 
 Opportunity cost of taking the course: $8,300 (course fee + highest forgone alternative) -> Took the course and forgo the Jobs money(only Job A because it is the highest and you could only choose one Job out of the two)
 
-Senario 4
+Scenario 4
 ---------
 A summer course runs for half the summer. The course fees are $1,300.
 If you don't take the course, you could work at Job A which pays $7000 AND Job B which pays $6000. Job A takes the first half of the summer, and Job B takes the second.
@@ -111,7 +111,7 @@ optimization in levels.
 - Marginal Analysis is analyzing the difference between two options in the table
 
 ```
-Challenge for Prob 3
+Challenge for Problem 3
 ---------------------
 If the value of time is less than or equal $X per hour, then FURTHEST is the
 optimal choice.
@@ -225,3 +225,43 @@ answer.
 - **Equilibrium Price** - The price where the quantity demanded equals the quantity supplied
 
 - **Supply Curve** - A curve which shows the relationship between the price of a good and the quantity supplied.
+
+<hr>
+
+<u>**Example of shifting the demand curve**</u>
+
+```
+The Super Bowl in 2014 was held outdoors in New Jersey in the winter. Assume the
+market for tickets to the event was in equilibrium one week prior to the Super
+Bowl. A weather report forecasted cold weather for the event, and the price for
+outdoor seats fell. On one website, the prices fell from $2,233 to $1,395 per
+ticket. The price for club seats that included access to a heated area did not
+change during the week before the event. Show the effect of the weather report
+in a graph.
+```
+
+![Graph for example 2 chapter 4](/resources/images/intro_to_micro/Ex2Chap4.PNG)
+
+- The portion of the supply curve that is vertical represents the time when no more tickets can be supplied no matter how high the price is
+- The demand curve will shift to the left as the demand decreases due to the predicted weather conditions
+- The point $$ \( Q_0, P_0 \) $$ represents the equilibrium point **before** the weather report
+  - $$ P_0 = $2,233 $$
+- The point $$ \( Q_1, P_1 \) $$ represents the equilibrium point **after** the weather report
+  - $$ P_0 = $1,395 $$
+
+## How to "look at(interpret)" a demand curve
+
+1. Demand Curve tells us *the quantity demanded at each price*
+  - Example Interpretation: "The customer is willing to pay at most $1.50 for 100 units"
+2. For each (additional) unit, the demand curve tells us the *maximum amount of money the customer is willing to pay for it*
+  - Example Interpretation: "For the 100th unit, the customer is willing to pay at most $1.50"
+
+## How to "look at(interpret)" a supply curve
+
+1. A supply curve tells us *the quantity supplied at each price*
+  - Example Interpretation: "At the price of $1.50, the seller(s) is willing to sell 100 units"
+2. A supply curve tells us *the minimum acceptable price for the seller to sell each (additional) unit*
+  - Example Interpretation: "Seller is willing to sell the 100th unit for at least $1.50"
+
+- Where does *minimum acceptable cost* come from?
+  - It's the cost of making that unit - It's the same as the marginal cost
