@@ -208,29 +208,20 @@ answer.
 
   ![Example Demand Curve](/resources/images/intro_to_micro/demand_curve_example.PNG)
 
+#### When Does a Demand curve shift rightward?
+
   - If the income of the consumer goes up, then the demand curve would shift right
+    1. Consumers Income(budget) increases
+    2. Price of a substitute increases
+      - Price of a compliment decreases
+    3. Positive information about the good
+      - Changes in consumer's taste for the good
+    4. Expectation that the price of the good will go up in the future.
 
-- **The Law of Demand**
-  - If the price of the product goes up, the quantity demand goes down
+- **The Law of Demand** - If the price of the product goes up, the quantity demand goes down
 
-<u>**Example 1 - (Shifting the Demand Curve; Shifting the supply curve; Supply and Demand in
-  Equilibrium; Curve shifting in Competitive Equilibrium)**</u>
+- A perfectly competitive market is fiction
 
-```
-1.
-  Consider the market for airlines and assume that it is a perfectly Competitive
-  market. Assume the US domestic market is currently at equilibrium with a
-  total of 642 million ticketed passengers per year at a price of $375 a ticket.
-  (You can find these statistics on the website of the United States Department
-    of Transportation). Suppose a study is released that documents large
-  negative health effects of increased exposure to radiation from flying. In
-  addition, suppose there is a sudden increase in the price of jet fuel. If you
-  are asked by a newspaper to comment on these developments, would you predict
-  that the average price per ticket would increase or decrease or that we would
-  be unable to be certain? Would you predict that the number of ticketed
-  passengers would increase or decrease or that we would need additional info?
-```
+- **Equilibrium Price** - The price where the quantity demanded equals the quantity supplied
 
-<u>**Answer**</u>
-
--
+- **Supply Curve** - A curve which shows the relationship between the price of a good and the quantity supplied.
