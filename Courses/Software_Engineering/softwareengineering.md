@@ -234,3 +234,7 @@ permalink: /Courses/Software_Engineering/
   - Special case of dependency view
 - Class View
   - "domain-model" in OOA and "class-diagram" in OOD
+
+## Domain Modeling
+
+- 

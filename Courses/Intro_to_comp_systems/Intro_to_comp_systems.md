@@ -265,6 +265,7 @@ APPLICATION (USER)
   - Accounting Information
 - For each process, the state is maintained in a *process control block(PCB)*
   - This is just data in the OS data space
+  - The process control block can also be called a *Process Table*
 
 #### Process Creation
 - How to create a process?
@@ -279,8 +280,61 @@ int pid = fork();
 ```
 
 - The creating process is called the parent and the new process is called the child
+  - The fork will return the PID of the child process to the parent and will return a 0 to the newly created process
 - The child process is created as a copy of the parent process(process image and process control structure) except for the identification and scheduling state
   - The parent and the child processes run in two different address spaces
   - By default, the memory is not shared between parent and child
   - Process creation is expensive because of this copying of the parent process
 - The exec() call is provided for the newly created process to run a different program than that of the parent
+  - The exec() command is a system call to issue a command for the process to run
+
+- Example code in C using fork()
+
+```C
+while(true){
+  get_command(command, parameters);
+
+  if(fork() != 0){  //Parent
+    wait(&status);
+  }else{            //Child
+    exec(command, parameters);
+  }
+}
+```
+
+- One process can wait for another process to finish by using the wait() system call
+- In the program above, the main function gets a command, and then spawns a process to execute the command
+  - The wait(&status) line forces the parent to wait for the child to finish before the parent finishes
+
+#### Signals
+
+- User programs can invoke OS services by notifying by using system calls
+- What if the program wants the OS to notify it asynchronously when some event occurs?
+  - Signals - UNIX mechanism for OS to notify a user program when an event of interest occurs
+- When an event of interest occurs
+  - Kernel handles it first
+  - Then modifies the process's stack to look as if the process's code made a procedure call to the signal handler
+  - Puts an activation record on the user-level stack corresponding to the event handler
+- When the user process is scheduled next it executes the handler first
+- From the handler the user process returns to where it was when the event occurred
+
+#### Schedulers
+
+- Short term scheduler - CPU scheduler - selects which process should be executed next and allocates CPU
+  - Sometimes the only scheduler in a system
+  - Short-term scheduler is invoked frequently
+- Long term scheduler - Job scheduler - selects which processes should be brought into the ready queue
+  - Long term scheduler is invoked infrequently
+  - The long term scheduler controls the degree of multi-programming
+  - Strives for a good mix of types of processes
+- Types of Process can be described as either:
+  - I/O bound processes - spends more time doing I/O than computations, many short CPU bursts
+  - CPU-bound processes - spends more time doing computations, very few long CPU bursts
+
+#### Process Termination
+
+- Some operating systems, don't allow children to exist if it's parent has terminated
+  - Done through cascading termination - all children and sub-children are terminated
+- Sometimes, parent process can finish and exit before the child if a wait statement is not used
+  - This creates a zombie process - a process that was never properly terminated
+- To kill a process, we can use the kill() command by giving it the PID of the process to kill
