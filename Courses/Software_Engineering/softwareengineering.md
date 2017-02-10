@@ -237,4 +237,33 @@ permalink: /Courses/Software_Engineering/
 
 ## Domain Modeling
 
-- 
+- Creating conceptual objects with descriptions which will execute the requirements as outlined in the functional requirement specification
+  - These objects will have a unique name and will have a description of what they do per use case.
+  - There should be enough objects to satisfy/complete the given use cases
+
+## Object-Oriented Development
+
+- Helps map out the interactions between conceptual objects
+- Steps to connect the dots:
+  1. Who handles the data?
+  2. Who performs the verification? Based on what data?
+  3. Who signals? Based on what?
+
+#### How data travels...
+
+- Option A
+  - "Expert" object passes the information to another object which uses it to perform some work
+- Option B
+  - "Expert" object directly uses the information to perform some work
+
+#### Some characteristics of good design
+- Short communication chains between the objects
+- Balanced workload across the objects
+- Low degree of connectivity(associations) among objects
+
+#### Some design principles
+- Expert Doer Principle: The object who knows the data should do the task
+- High Cohesion Principle: One object should not take too many computation responsibilities
+- Low Coupling Principle: One object should not take on too many communication responsibilities
+  - Several outgoing links is bad - dependency on other objects
+  - Several incoming links is good - object is reusable
