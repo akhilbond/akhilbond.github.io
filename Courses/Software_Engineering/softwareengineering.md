@@ -267,3 +267,21 @@ permalink: /Courses/Software_Engineering/
 - Low Coupling Principle: One object should not take on too many communication responsibilities
   - Several outgoing links is bad - dependency on other objects
   - Several incoming links is good - object is reusable
+
+## Software Testing
+
+- A **fault**, also called a "defect" or "bug", is an erroneous hardware or software element of a system that can cause the system to fail
+- Test Driven Development(**TDD**)
+  - Every step in the development process must start with a plan of how to verify that the result meets the goal
+- A **test case** is a particular choice of input data to be entered into the system to test operation
+- The goal is to find faults as cheaply and quickly as possible
+
+#### Logical Order of Testing
+
+- Unit Testing - Ensures that each component works as specified
+- Integration test - Ensures that all components work together
+- System test
+  - Function test - Verifies that functional requirements are satisfied
+  - Quality test - Verifies non-functional requirements
+  - Acceptance test - Customer verifies all requirements
+  - Installation Test - Testing the user environment
