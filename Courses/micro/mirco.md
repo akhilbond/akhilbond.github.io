@@ -70,11 +70,12 @@ The taxi fare to the furthest airport is $60 and will take one hour. You have a
  part-time job where you earn $12 per hour. Create a table and determine which
  airport is the optimum for you to use.
 ```
-| Airport  | Time to Airport | Cost of Travelling to Airport | Taxi Fare | Airfare | Total Cost    |
-| :------- | :-------------- | :---------------------------- | :-------- | :------ | :------------ |    
-| Closest  | 15 min          | 3                             | 20        | 400     | 423           |
-| Middle   | 30 min          | 6                             | 30        | 325     | 361           |
-| Furthest | 60 min          | 12                            | 60        | 275     | 347 (Optimal) |
+
+| Airport       | Time to Airport    | Cost of Travelling to Airport   | Taxi Fare   | Airfare  | Total Cost       |
+| :-------      | :--------------    | :----------------------------   | :--------   | :------  | :------------    |    
+| Closest       | 15 min             | 3                               | 20          | 400      | 423              |
+| Middle        | 30 min             | 6                               | 30          | 325      | 361              |
+| Furthest      | 60 min             | 12                              | 60          | 275      | 347 (Optimal)    |
 
 
 ```
