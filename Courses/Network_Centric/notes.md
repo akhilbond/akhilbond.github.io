@@ -7,6 +7,67 @@ permalink: /Courses/Network_Centric/
 # Introduction
 
 - This course covers coding network programs in the C programming language.
+- Topics that the course covers
+  - Files, IO, Network Communication
+  - Socket Network programming
+  - Network Server Design
+    - Multi-threaded programs and synchronization
+  - Secure Programming
+  - Profiling and Performance Analysis
+  - Remote Procedure calls
+
+# Input and Output in C
+
+## File Operations
+
+- Key functions
+  - fopen - returns pointer to FILE structure(file pointer)
+  - fclose
+  - fread
+  - fwrite
+  - fgetc / fputc
+  - fgets / fputs
+  - fseek / ftell
+
+
+
+## Low-level File I/O Functions
+
+- Unbuffered I/O
+- Every read or write call invokes a system call
+- Open files are identified by file descriptor(nonnegative integer)
+- Shells follow this convention
+  - 0 = STDIN_FILENO
+  - 1 = STDOUT_FILENO
+  - 2 = STDERR_FILENO
+
+- System Calls
+  - open
+  - read
+  - write
+  - lseek
+  - close
+
+### fopen/open
+
+- Both of these statements open a file and creates a file pointer to identify the location of the current file position in the file.
+- The syntax from the fopen command is
+```C
+FILE* fp = fopen(const char* pathname, const char* mode);
+```
+  - returns a file pointer (to buffer)
+  - Mode
+    - "r" - read only
+    - "w" - write(create new file or overwrite)
+    - "a" - write or append if file exists
+    - "r+, w+, a+" - different read or write modes
+- The syntax from the fopen command is
+```C
+int fd = open(const char* pathname, int oflag, ...)
+```
+  - Oflags
+    - Required: O_RDONLY, O_WRONLY, or O_RDWR
+    - Optional: O_APPEND, O_CREAT, O_SYNC, O_EXCL
 
 # Debugging
 
