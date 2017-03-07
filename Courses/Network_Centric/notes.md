@@ -51,7 +51,7 @@ permalink: /Courses/Network_Centric/
 ### fopen/open
 
 - Both of these statements open a file and creates a file pointer to identify the location of the current file position in the file.
-- The syntax from the fopen command is
+- The syntax from the fopen statement is
 ```C
 FILE* fp = fopen(const char* pathname, const char* mode);
 ```
@@ -61,13 +61,63 @@ FILE* fp = fopen(const char* pathname, const char* mode);
     - "w" - write(create new file or overwrite)
     - "a" - write or append if file exists
     - "r+, w+, a+" - different read or write modes
-- The syntax from the fopen command is
+- The syntax from the open statement is
 ```C
 int fd = open(const char* pathname, int oflag, ...)
 ```
   - Oflags
     - Required: O_RDONLY, O_WRONLY, or O_RDWR
     - Optional: O_APPEND, O_CREAT, O_SYNC, O_EXCL
+
+### fclose/close
+
+- fclose(FILE* stream)
+- Close(int filedescriptor)
+  - cleans up kernel data structures
+  - Files automatically closed if program ends
+
+## Error Handling
+
+- Most system call library functions return -1(or sometimes 0) when an error occurs
+  - Must be checked after every function call
+- The global errno variable contains an error number that describes why the function failed
+  - Errno is only valid if an error has occurred
+- Use strerr() or perror() functions to convert error numbers to meaningful strings
+- Sample code for error Handling
+
+```
+#include	<errno.h>
+#include	"ourhdr.h"
+
+int main(int argc, char* argv[])
+{
+     /* … some library call here */
+
+	fprintf(stderr, "EACCES: %s\n", strerror(EACCES));
+
+	/* another example – perror directly prints to stderr */
+	errno = ENOENT;
+	perror(argv[0]);
+
+	exit(0);
+}
+```
+
+## File Pointers and Seeking
+
+- The system remembers the position in a file through a file pointer(32-bit offset), which automatically advances when you read or write
+- These functions can query or modify the position of the pointer:
+
+```
+long ftell(FILE* fp);
+int fseek(FILE* fp, long offset, int whence);
+void rewind(FILE* fp);
+```
+
+- In the fseek function, to access key locations of the file, we can use special codes in the offset section of fseek
+  - SEEK_SET - beginning of file
+  - SEEK_CUR - current file position
+  - SEEK_END - end of file
 
 # Debugging
 
