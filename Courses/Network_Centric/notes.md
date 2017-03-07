@@ -29,17 +29,18 @@ permalink: /Courses/Network_Centric/
 
 - ```gdb a.out core``` - allows you to use gdb and look at the current state of the code when it had the segfault
 
+
 # Processes
 
-## Locks - File Locks - "Record Locks"
-
-- Synchronize access from multiple processes from shared memory
-- Allows you to specify what portion of a file to lock to improve performance
 
 
 # Threads
 
-## Locks - MUTEX
+
+
+# Locking
+
+## MUTEX
 
 - Acts as a lock for certain lines of code in a tread which makes sure that a thread accesses a shared variable when another thread is not using it, to avoid corruption of data.
 
@@ -56,3 +57,8 @@ pthread_mutex_t childsum_mutex = PTHREAD_MUTEX_INITIALIZER;
 //Mark the beginning of the portion of code you want to lock
 pthread_mutex_lock(&childsum_mutex);
 ```
+
+## File Locks - "Record Locks"
+
+- Synchronize access from multiple processes from shared memory
+- Allows you to specify what portion of a file to lock to improve performance
