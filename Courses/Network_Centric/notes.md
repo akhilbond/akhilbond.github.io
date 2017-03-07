@@ -4,7 +4,7 @@ title: Network Centric Programming
 permalink: /Courses/Network_Centric/
 ---
 
-# Introduction
+## Introduction
 
 - This course covers coding network programs in the C programming language.
 - Topics that the course covers
@@ -16,9 +16,9 @@ permalink: /Courses/Network_Centric/
   - Profiling and Performance Analysis
   - Remote Procedure calls
 
-# Input and Output in C
+## Input and Output in C
 
-## File Operations
+### File Operations
 
 - Key functions
   - fopen - returns pointer to FILE structure(file pointer)
@@ -31,7 +31,7 @@ permalink: /Courses/Network_Centric/
 
 
 
-## Low-level File I/O Functions
+### Low-level File I/O Functions
 
 - Unbuffered I/O
 - Every read or write call invokes a system call
@@ -48,7 +48,7 @@ permalink: /Courses/Network_Centric/
   - lseek
   - close
 
-### fopen/open
+#### fopen/open
 
 - Both of these statements open a file and creates a file pointer to identify the location of the current file position in the file.
 - The syntax from the fopen statement is
@@ -69,14 +69,14 @@ int fd = open(const char* pathname, int oflag, ...)
     - Required: O_RDONLY, O_WRONLY, or O_RDWR
     - Optional: O_APPEND, O_CREAT, O_SYNC, O_EXCL
 
-### fclose/close
+#### fclose/close
 
 - ```fclose(FILE* stream)```
 - ```Close(int filedescriptor)```
   - cleans up kernel data structures
   - Files automatically closed if program ends
 
-## Error Handling
+### Error Handling
 
 - Most system call library functions return -1(or sometimes 0) when an error occurs
   - Must be checked after every function call
@@ -103,7 +103,7 @@ int main(int argc, char* argv[])
 }
 ```
 
-## File Pointers and Seeking
+### File Pointers and Seeking
 
 - The system remembers the position in a file through a file pointer(32-bit offset), which automatically advances when you read or write
 - These functions can query or modify the position of the pointer:
@@ -119,9 +119,9 @@ void rewind(FILE* fp);
   - SEEK_CUR - current file position
   - SEEK_END - end of file
 
-# Files and Directories
+## Files and Directories
 
-## Getting File Metadata
+### Getting File Metadata
 
 - ```Int stat(char* filename, struct stat* buf)```
   - Fills in the stat data structures with information about file type, size, permissions, time, etc.
@@ -164,7 +164,7 @@ struct	stat
 - fstat
   - Used for already opened files
 
-## File Types(modes)
+### File Types(modes)
 
 - Regular file
 - Directory file
@@ -193,7 +193,7 @@ struct	stat
   - No write on directory
   - Open on symbolic link requires redirection
 
-## Directory Manipulation in UNIX
+### Directory Manipulation in UNIX
 
 - mkdir - create a directory
 - rmdir - remove a directory
@@ -230,7 +230,7 @@ int main(int argc, char* argv[])
 }
 ```
 
-## Symbolic links
+### Symbolic links
 
 - Can span over the user's file system, because the user can create links to directories on other parts of their file system
 - They are represented by special files
@@ -239,7 +239,7 @@ int main(int argc, char* argv[])
 - Readlink(pathname, ...) - reads sympath which is located at pathname
   - These files cannot be read with the open command
 
-## Common file Operations
+### Common file Operations
 
 - access - access control check
 - chdir - change directory
@@ -250,13 +250,13 @@ int main(int argc, char* argv[])
   - also unlink(file only), and rmdir(directory only)
 - rename - rename directory
 
-## Hard Links
+### Hard Links
 
 - Every directory entry points to an i-node(which represents a file)
   - Multiple entries can point to the same file(hard links)
 - ```Link(existingpath, newpath)``` - creates an additional directory entry to an existing file
 
-## Problem: Loops
+### Problem: Loops
 
 - Recursive listing of files does not work
   - This means that one link is pointing to another link, and the other link is pointing back to the original link
@@ -265,13 +265,13 @@ int main(int argc, char* argv[])
   - rmdir removes links to directories only when they are empty
 - Only root users can create hard links to directories
 
-# Socket Programming
+## Socket Programming
 
-## Client-Server Model
+### Client-Server Model
 
 ![Client-Server Model](/resources/images/net_cent/client_server_model.png)
 
-# Debugging
+## Debugging
 
 - What happens if we have a segmentation fault, this means that some portion of our code is trying to access a piece of memory that it does not have access to. Now how do we debug this and find the problem?
 
@@ -293,17 +293,17 @@ int main(int argc, char* argv[])
 - ```gdb a.out core``` - allows you to use gdb and look at the current state of the code when it had the segfault
 
 
-# Processes
+## Processes
 
 
 
-# Threads
+## Threads
 
 
 
-# Locking
+## Locking
 
-## MUTEX
+### MUTEX
 
 - Acts as a lock for certain lines of code in a tread which makes sure that a thread accesses a shared variable when another thread is not using it, to avoid corruption of data.
 
@@ -321,12 +321,12 @@ pthread_mutex_t childsum_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_lock(&childsum_mutex);
 ```
 
-## File Locks - "Record Locks"
+### File Locks - "Record Locks"
 
 - Synchronize access from multiple processes from shared memory
 - Allows you to specify what portion of a file to lock to improve performance
 
-## Deadlock
+### Deadlock
 
 - Can occur is threads acquire several locks for one operation
 
