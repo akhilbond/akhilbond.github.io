@@ -71,8 +71,8 @@ int fd = open(const char* pathname, int oflag, ...)
 
 ### fclose/close
 
-- fclose(FILE* stream)
-- Close(int filedescriptor)
+- ```fclose(FILE* stream)```
+- ```Close(int filedescriptor)```
   - cleans up kernel data structures
   - Files automatically closed if program ends
 
@@ -85,17 +85,17 @@ int fd = open(const char* pathname, int oflag, ...)
 - Use strerr() or perror() functions to convert error numbers to meaningful strings
 - Sample code for error Handling
 
-```
+```c
 #include	<errno.h>
 #include	"ourhdr.h"
 
 int main(int argc, char* argv[])
 {
-     /* … some library call here */
+     // … some library call here
 
 	fprintf(stderr, "EACCES: %s\n", strerror(EACCES));
 
-	/* another example – perror directly prints to stderr */
+	// another example – perror directly prints to stderr
 	errno = ENOENT;
 	perror(argv[0]);
 
@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
 - The system remembers the position in a file through a file pointer(32-bit offset), which automatically advances when you read or write
 - These functions can query or modify the position of the pointer:
 
-```
+```C
 long ftell(FILE* fp);
 int fseek(FILE* fp, long offset, int whence);
 void rewind(FILE* fp);
@@ -118,6 +118,158 @@ void rewind(FILE* fp);
   - SEEK_SET - beginning of file
   - SEEK_CUR - current file position
   - SEEK_END - end of file
+
+# Files and Directories
+
+## Getting File Metadata
+
+- ```Int stat(char* filename, struct stat* buf)```
+  - Fills in the stat data structures with information about file type, size, permissions, time, etc.
+
+- The stat data structure is
+
+```C
+struct	stat
+{
+  dev_t		st_dev;
+  ino_t		st_ino;
+  mode_t	st_mode;
+  nlink_t	st_nlink;
+  uid_t		st_uid;
+  gid_t		st_gid;
+  dev_t		st_rdev;
+  off_t		st_size;
+  // SysV/sco doesn't have the rest... But Solaris, eabi does.
+#if defined(__svr4__) && !defined(__PPC__) && !defined(__sun__)
+  time_t	st_atime;
+  time_t	st_mtime;
+  time_t	st_ctime;
+#else
+  time_t	st_atime;
+  long		st_spare1;
+  time_t	st_mtime;
+  long		st_spare2;
+  time_t	st_ctime;
+  long		st_spare3;
+  long		st_blksize;
+  long		st_blocks;
+  long	st_spare4[2];
+#endif
+};
+```
+
+- lstat
+  - Similar to stat, but does not follow links
+
+- fstat
+  - Used for already opened files
+
+## File Types(modes)
+
+- Regular file
+- Directory file
+- Character special file
+  - device access, e.g serial port
+- Block special file
+  - device access, e.g disk
+- FIFO
+  - pipes
+- Socket
+  - Network connection
+- Symbolic link
+  - pointer to another file
+
+- Using MACROS to test file types
+  - ```S_ISREG(m)``` - is it a regular file?
+  - ```S_ISDIR(m)``` - is it a directory?
+  - ```S_ISCHR(m)``` - is it a character device?
+  - ```S_ISBLK(m)``` - is it a block device?
+  - ```S_ISFIFO(m)``` - is it a fifo?
+  - ```S_ISLNK(m)``` - is it a symbolic link?
+  - ```S_ISSOCK(m)``` - is it a socket?
+
+- The OS needs to be able to distinguish the type of a file to be able to know what commands/operations can be performed on the file
+  - No seek on FIFO or sockets
+  - No write on directory
+  - Open on symbolic link requires redirection
+
+## Directory Manipulation in UNIX
+
+- mkdir - create a directory
+- rmdir - remove a directory
+- opendir - open directory for reading
+- readdir - read directory entries
+- rewinddir - move pointer back to the beginning of the directory
+- closedir - close directory after reading is complete
+- chdir - set the working directory for the current process
+- getcwd - get the working directory for the current process
+
+- A simple code to access a library through system calls. This an emulation of the ls command
+
+```c
+#include	<sys/types.h>
+#include	<dirent.h>
+#include	"ourhdr.h"
+
+int main(int argc, char* argv[])
+{
+	DIR* dp;
+	struct dirent* dirp;
+
+	if (argc != 2)
+		err_quit("a single argument (the directory name) is required");
+
+	if ( (dp = opendir(argv[1])) == NULL)
+		err_sys("can't open %s", argv[1]);
+
+	while ( (dirp = readdir(dp)) != NULL)
+		printf("%s\n", dirp->d_name);
+
+	closedir(dp);
+	exit(0);
+}
+```
+
+## Symbolic links
+
+- Can span over the user's file system, because the user can create links to directories on other parts of their file system
+- They are represented by special files
+- Loops are easier to remove
+- Symlink(actualpath, sympath) - creates a symbolic link to sympath and the link will be located at actualpath
+- Readlink(pathname, ...) - reads sympath which is located at pathname
+  - These files cannot be read with the open command
+
+## Common file Operations
+
+- access - access control check
+- chdir - change directory
+- chown - change owner of a directory
+- open - open a file
+- opendir - open directory
+- remove - delete file or directory
+  - also unlink(file only), and rmdir(directory only)
+- rename - rename directory
+
+## Hard Links
+
+- Every directory entry points to an i-node(which represents a file)
+  - Multiple entries can point to the same file(hard links)
+- ```Link(existingpath, newpath)``` - creates an additional directory entry to an existing file
+
+## Problem: Loops
+
+- Recursive listing of files does not work
+  - This means that one link is pointing to another link, and the other link is pointing back to the original link
+- There is no easy way to fix this
+  - Unlink does not remove links in a directories
+  - rmdir removes links to directories only when they are empty
+- Only root users can create hard links to directories
+
+# Socket Programming
+
+## Client-Server Model
+
+![Client-Server Model](/resources/images/net_cent/client_server_model.png)
 
 # Debugging
 
