@@ -271,6 +271,48 @@ int main(int argc, char* argv[])
 
 ![Client-Server Model](/resources/images/net_cent/client_server_model.png)
 
+- Network software consists of multiple programs that run on different machines and communicate over the network
+- The client-server model shows how a client and a server interact over the network
+  1. Client sends a request for information to the Server
+  2. Server processes the request and retrieves requested data or modifies specified data
+  3. Server sends response back to the Client
+  4. Client processes the response
+
+### Messages and Protocols
+
+- Message: A sequence of bytes(data) which is transmitted over a network
+  - The requests and responses are examples of messages
+- Protocol: An agreement about ...
+  - How messages are to be interpreted
+  - What messages are valid
+  - In which sequence that messages can be sent
+
+### Layers of Protocols, Packets, and Encapsulation
+
+![Network Encapsulation](/resources/images/net_cent/packet_headers.png)
+
+- The unit of transmission over the network is a packet. A message from the client may be split up into multiple packets, if it does not fit into a single one. This is often hidden from the application.
+
+- Each packet receives various headers to the front of the packet to show where the packet is supposed to be sent across the network. These are put on by the client machine, and removed by the server machine.
+  - If these headers were not placed on the packet, then the packet may get lost over the network.
+- In the figure above, there would be a separate header for each step of Host A to get the packet on the network. This means that there is a separate header from the client, protocol software, and the LAN 1 adapter. Each of these headers are removed by Host B to get access to the data.
+
+### Network Structures and Elements: A Local Area Network
+
+![LAN Structures](/resources/images/net_cent/LAN_structures.png)
+
+- Host - a computer which is connected to the network
+- Network medium - transmits bits as electrical or electromagnetic signals(Standards: IEEE 802.11, IEEE 802.3)
+- Star topology - Includes a hub which forwards appropriate packets to the correct hosts based on the headers.
+- Bus topology - All of the hosts are connected to the LAN bus and only take packets which belong to them
+
+### A campus network
+
+![Campus Network Structure](/resources/images/net_cent/campus_network.png)
+
+- This network configuration has various LANs connected together through a bridge, each device on the network is addressed by its MAC address, which ensures that each computer get all the packets that it needs.
+- The messages are not sent to everyone because of reachability of the host, security reasons, and overall network performance
+
 ## Debugging
 
 - What happens if we have a segmentation fault, this means that some portion of our code is trying to access a piece of memory that it does not have access to. Now how do we debug this and find the problem?
