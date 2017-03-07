@@ -62,3 +62,12 @@ pthread_mutex_lock(&childsum_mutex);
 
 - Synchronize access from multiple processes from shared memory
 - Allows you to specify what portion of a file to lock to improve performance
+
+## Deadlock
+
+- Can occur is threads acquire several locks for one operation
+
+- Atomic instructions - thread safe instructions which already in your operating system
+- Thread safe functions - functions which can be used without using a MUTEX lock
+  - The only way to identify if a function is thread safe is to read the documentation for the function
+  - A list of some functions that are NOT thread safe are listed on the man page for pthreads
