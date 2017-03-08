@@ -326,7 +326,6 @@ int main(int argc, char* argv[])
   - This is a service which converts an ip address into a string which we can read and use to easily identify machines over the network
   - If we did not have this service, we would not urls to go to websites and we would have to remember the ip of each website to access it
 
-
 ### Port Numbers
 
 - Essentially application identifiers, since one host may run many applications
@@ -357,6 +356,24 @@ int main(int argc, char* argv[])
 ![Server Client Structure](/resources/images/net_cent/server-client.png)
 
 ### Creating a Socket
+
+- ```int socket(int family, int type, int protocol);```
+  - Returns a socket file descriptor
+  - Family: AF_INET, AF_INET6, ...
+  - Type: SOCK_STREAM, SOCK_DGRAM, SOCK_SEQPACKET, SOCK_RAW
+  - Protocol: 0(selected by default), IPPROTO_TCP, IPPROTO_UDP, IPPROTO_SCTP
+  - Not all combinations of the things above are valid
+
+### Useful Network Terminal Commands
+
+- ```netstat -ni```
+  - Lists network interfaces
+- ```ifconfig <interface>```
+  - Show the IP address and configuration of a specified interface
+
+### How do you client and server know which port to choose?
+
+
 
 ## Debugging
 
