@@ -306,12 +306,57 @@ int main(int argc, char* argv[])
 - Star topology - Includes a hub which forwards appropriate packets to the correct hosts based on the headers.
 - Bus topology - All of the hosts are connected to the LAN bus and only take packets which belong to them
 
-### A campus network
+### A Campus Network
 
 ![Campus Network Structure](/resources/images/net_cent/campus_network.png)
 
 - This network configuration has various LANs connected together through a bridge, each device on the network is addressed by its MAC address, which ensures that each computer get all the packets that it needs.
 - The messages are not sent to everyone because of reachability of the host, security reasons, and overall network performance
+
+### A Small Internet
+
+![A small Internet](/resources/images/net_cent/small_internet.png)
+
+- The router can find long paths over the network and can translate between different technologies(i.e. different computer makes and different network cards)
+- The addressing scheme is through IP addresses to identify various computers over the network
+
+### Naming and Addressing(DNS)
+
+- DNS - Domain Name Service
+  - This is a service which converts an ip address into a string which we can read and use to easily identify machines over the network
+  - If we did not have this service, we would not urls to go to websites and we would have to remember the ip of each website to access it
+
+
+### Port Numbers
+
+- Essentially application identifiers, since one host may run many applications
+- Any 16-bit value(0-65535), but values below 1000 are reserved by the operating system and other devices
+
+### Sockets API
+
+- General interface for network programming and inter-processes communication
+- A socket is a communication endpoint, a tap into the network
+- Network protocol is independent, but usually it's used with Internet protocols
+  - This allows for a variety of addressing formats
+
+- Types of socket connections
+  - Datagram
+    - Unordered message-oriented communication
+    - Application multiplexing
+    - Usually mapped to UDP
+  - Stream
+    - Application multiplexing
+    - Reliable, flow controlled data stream
+    - Usually mapped to TCP
+  - Raw
+    - Direct access to network layer
+    - Usually mapped to IP
+
+### Typical Implementation of a Client-Server System
+
+![Server Client Structure](/resources/images/net_cent/server-client.png)
+
+### Creating a Socket
 
 ## Debugging
 
