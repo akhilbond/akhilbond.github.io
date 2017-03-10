@@ -518,6 +518,60 @@ Int main(int argc, char* argv[]) {
   - https://www.google.com/
   - https://www.facebook.com/
 
+### Typical Steps that a web browser takes
+
+- Steps to access https://www.google.com
+  1. Check the protocol of the HTTP or HTTPS request
+  2. Parse and resolve the hostname - This is found separated by the symbols ```://```, which can be resolved by using the gethostbyname(), which invokes DNS
+  3. Parse the port number - allows the browser to connect to the specific port to obtain the desired information
+  4. Open stream socket to host - this is opened on the specified port number, otherwise it is opened on the default port number(80 for regular HTTP requests)
+  5. Send HTTP requests for path a filename for the different components of the requested page by the user
+
+### Protocol Methods
+
+- GET
+  - Retrieves contents of the URL
+- POST
+  - Post information to the URL
+  - This is usually used to send form inputs or files to a sever side script
+- HEAD
+  - Retrieve only the header information of the site
+- PUT
+  - Store data under the URL
+- DELETE
+  - Delete data under the URL
+
+#### An example of a GET request from a browser
+
+```
+GET /log HTTP/1.0
+Connection: Keep-Alive 
+User-Agent: Mozilla/4.03 [en] (X11; I; HP-UX B.10.20 9000/777)
+Host: w0:4711
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, */* 
+Accept-Language: en 
+
+Accept-Charset: iso-8859-1,*,utf-8 
+```
+
+### Return codes from web servers
+
+- 200 - OK
+- 400 - Malformed Request
+- 404 - URL could not be found on that specific server
+- 500 - Server Errors
+- 501 - Client used an unknown method in the request
+
+### Response Headers
+
+- Date - timestamp
+- Server - vendor name
+- Content Length - Length of the reply
+- Content Type - plain text, html, mp3, etc.
+- Last Modified - timestamp of the last modification of the requested resources
+- Cache-control - no-cached used to disable web-caching in between server and browser
+- Expires - timestamp that caches use to discard cached pages
+
 ## Debugging
 
 - What happens if we have a segmentation fault, this means that some portion of our code is trying to access a piece of memory that it does not have access to. Now how do we debug this and find the problem?
