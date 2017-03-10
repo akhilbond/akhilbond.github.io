@@ -371,9 +371,152 @@ int main(int argc, char* argv[])
 - ```ifconfig <interface>```
   - Show the IP address and configuration of a specified interface
 
-### How do you client and server know which port to choose?
+### Server Program
 
+#### Bind
 
+- ```int bind(int sockfd, sockaddr* a, socklen_t l);```
+- Assigns a local address to a socket (e.g IP address or port number)
+  - IP address must belong to a local interface
+  - Calling bind is optional, otherwise ...
+    - the system chooses a default port
+    - for client, system choose IP of outgoing interface
+    - for server, system chooses destination IP of incoming packet(SYN packet)
+    - getsockname() returns the chosen address/port
+  - Typically, only used for sockets that accept incoming connections
+- Only root users can bind to privileged ports(ports < 1024)
+
+#### Listen
+
+- ```int listen(int sockfd, int backlog);````
+- This statement configures a socket to accept incoming connections
+  - Incomplete and established/completed queue necessary to implement TCP handshake
+  - Backlog specifies the buffer size(queue length) for incoming connections
+    - Traditional BSD max of 5 is not sufficient for high volume servers
+    - May have a fudge factor of 1.5
+    - From Linux 2.2 the backlog refers to the size of the established queue(>syn flood)
+    - Don't use zero because of portability issues
+
+#### Accept
+
+- ```int accept(int sockfd, sockaddr* a, socklen_t* len);```
+- Returns the next completed connection from the established queue
+  - The return value is a different sockfd for the connected socket
+  - The listen command returns a listening socket and the accept command returns the connected socket
+- This statement is blocking
+- ```sockaddr* a``` returns the address of the connected client
+- ```socklen_t* len``` is a value-result argument(takes the length of the input structure, and returns the number of bytes stored in this structure)
+
+#### Three-Way TCP Handshake
+
+![TCP handshake](/resources/images/net_cent/tcphandshake.png)
+
+- This is the handshake between the server and client which is done when the accept statement is called
+- This can also be done while handling multiple clients as well.
+
+#### Code for an Iterative Server
+
+```c
+listenfd = Socket(AF_INET, SOCK_STREAM, 0);
+
+bzero(&servaddr, sizeof(servaddr));
+servaddr.sin_family      = AF_INET;
+servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+servaddr.sin_port        = htons(13);	/* daytime server, can only be run as root */
+
+Bind(listenfd, (SA*) &servaddr, sizeof(servaddr));
+
+Listen(listenfd, LISTENQ);
+
+for ( ; ; ) {
+  len = sizeof(cliaddr);
+  connfd = Accept(listenfd, (SA*) &cliaddr, &len);
+  printf("connection from %s, port %d\n",
+       Inet_ntop(AF_INET, &cliaddr.sin_addr, buff, sizeof(buff)),
+       ntohs(cliaddr.sin_port));
+
+        ticks = time(NULL);
+        snprintf(buff, sizeof(buff), "%.24s\r\n", ctime(&ticks));
+        Write(connfd, buff, strlen(buff));
+
+  Close(connfd);
+}
+```
+
+### Client Programming
+
+#### Connect
+
+- ```int connect(sockfd, servaddr, addrlen);```
+- Requires an open socket and destination address
+- Possible Errors:
+  - ETIMEDOUT – no response received after connection attempt
+  - ECONNREFUSED – the server has refused the connection attempt (often wrong IP or port number)
+  - EHOSTUNREACH – a router has notified the client that the destination could not be found
+
+#### Address Conversion
+
+- The system should convert from string/presentation representation("192.168.0.1") into a binary representation
+- "Presentation" to "Numeric"
+  - ```int inet_pton(family, strptr, addrptr);```
+- "Numeric" to "Presentation"
+  - ```char* inet_ntop(family, addrptr, strptr, len);```
+
+#### Client Code
+
+```c
+Int main(int argc, char* argv[]) {
+	int		sockfd, n;
+	char	recvline[MAXLINE + 1];
+	struct sockaddr_in	servaddr;
+
+	if (argc != 2)
+		err_quit("usage: a.out <IPaddress>");
+
+	if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+		err_sys("socket error");
+
+	bzero(&servaddr, sizeof(servaddr));
+	servaddr.sin_family = AF_INET;
+	servaddr.sin_port   = htons(13);	// daytime server
+	if (inet_pton(AF_INET, argv[1], &servaddr.sin_addr) <= 0)
+		err_quit("inet_pton error for %s", argv[1]);
+	if (connect(sockfd, (SA*) &servaddr, sizeof(servaddr)) < 0)
+		err_sys("connect error")
+
+	while ( (n = read(sockfd, recvline, MAXLINE)) > 0) {
+		recvline[n] = 0;	// null terminate
+		if (fputs(recvline, stdout) == EOF)
+			err_sys("fputs error");
+	}
+	if (n < 0)
+		err_sys("read error");
+}
+```
+
+### Byte Ordering
+
+- Byte ordering may differ between the server and the client
+- Network protocols specify a network byte order and each host is responsible for translation to the network byte order if needed
+  - Internet protocols are big endian
+  - x86 architectures are little endian
+
+## HTTP Protocol
+
+### HTTP
+
+- Hypertext Transfer Protocol
+  - It was designed in 1990 by Tim Berners at CERN
+  - It applies a stateless request/response protocol
+
+### URL
+
+- URL - Uniform Resource Locator
+- Protocol: Servername:port/path/filename?arguments
+- It is a string that uniquely identifies web resources
+- Examples
+  - https://www.google.com/
+  - https://www.facebook.com/
 
 ## Debugging
 
