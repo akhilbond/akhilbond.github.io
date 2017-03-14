@@ -593,14 +593,172 @@ Accept-Charset: iso-8859-1,*,utf-8 
 
 - ```gdb a.out core``` - allows you to use gdb and look at the current state of the code when it had the segfault
 
+### GDB commands
+
+- Run arg1 arg2
+- Break 17/continue
+  - Break main
+- Next/Step
+- Info Registers
+- Disass main
+- Print a
+  - Disp a
+- BT
+  - Backtrace function calls
+
+- These commands make inspection of the program easier
+  - The program requires no recompiling
+  - No adding or removing print statements
+  - Breakpoints allow partial execution of the program at a time
+  - The gdb debugger also allows for step by step execution of the program to find where the error occurs
+
+### Other useful tools
+
+- Network
+  - Netstat/Nmap - these tools show the open ports on a specific device on your network
+  - Telnet - send/recieve TCP ascii data
+    - This can also be used as a client if you are debugging a server program
+  - Ping - used to test basic IP configuration and network connectivity
+  - Tcpdump/ethereal
+  - Valgrind
+  - Memcheck
+  - DDD
+  - Boundschecker
+  - lint
 
 ## Processes
 
+- A process is a running instance of a program
+  - Multiple instances of a program can be running at once at the same time on the same machine
+- Operating Systems "multitask" to give the impression that all process run at the same time
+  - The process scheduler runs in the background a regulates that all running processes get an equal amount of run time
+- The ```ps -a``` command in the terminal outputs the list of active processes on the current machine
 
+### Fork - creating processes via cloning
+
+- Fork is a system call which clones and runs another instance of the current process
+- pid_t fork(void)
+  - Creates a task structure
+  - Copies the page table
+- Copy-on-Write for address space
+- Returns twice(once for the parent and once for the child)
+  -  The fork system calls essentially returns the PID of the child to the calling process. The parent gets the PID of the newly created child and the child process gets 0 as it has no child for itself.
+  - This can be taken advantage of in code to allows the parent to execute a certain set of instructions as the child executes another.
+
+### How is the first process created?
+
+- Every process has an identifier, its PID.
+- "Init" is the first process to run after booting
+  - It receives the PID of 1
+  - The kernel scheduler receives a PID of 0
+- Every process except Init has a parent
+  - The parent process is the one that called fork to create a child
+- Init adopts orphan processes that lose their parent
+
+### What does a child process inherit?
+
+- The child process inherits basically everything from the parent process
+  - User,group IDs
+  - Content of all program variables
+  - File descriptor table (parent and child share same file table entries)
+  - Controlling terminal
+  - Working and root directory
+  - Umask
+  - Environment
+  - Shared memory segments
+  - Resource Limits
+- However the child does not inherit
+  - Process ID
+  - Parent Process ID
+  - Execution time counters
+  - File locks
+  - Pending alarms and signals
+
+### Process Termination
+
+- Return, exit()
+  - Performs cleanup operations(fclose on stdio streams)
+  - Exit status undefined if not explicitly given
+  - Calls exit handlers are registered, and are called in reverse order of registration
+- \_exit()
+  - Returns to kernel immediately
+- Abort
+- Signal Termination
 
 ## Threads
 
+- Threads are "lightweight" processes
+  - The represent an execution path through a program
+- One process can contain multiple threads, but each thread only belongs to one process
+  - If the process terminates, all threads terminate
+  - Process resources(file descriptors are shared among threads)
+- Creation and context switching other threads is faster than processes
+- Threads share the same address spacce, but each thread has a different stack
 
+### Benefits of a threaded program over a sequential program
+
+- Improve application responsiveness
+  - Webserver answering requests
+  - GUI responding to user input
+- Can improve code readability
+- More efficient use of resources
+  - This is beneficial in multiprocessor machines
+  - Known as "Hyperthreading"
+
+### User level & Kernel Level Threads
+
+- Threads can be implemented as a user-level library or in the kernel(accessible through system calls)
+- User-level advantages
+  - No mode switching for thread context switches, creation, etc.
+  - Independent of the OS
+- Kernel-level advantages
+  - A blocking system call only stops one thread and not the whole process
+  - Can take advantage of multiple processors
+
+### Creation and Termination
+
+- ```int pthread_create(tid, attributes, function pointer, arguments)```
+  - Tid - Thread ID(also accessible within the thread by pthread_self)
+  - Attributes - priority, stack size, etc.
+  - Function pointer - a pointer to the function which the thread will execute
+  - Arguments - arguments are passed as a void pointer
+- Termination
+  - When the function returns
+  - Explicit call to pthread_exit
+  - When the creating process terminates
+
+### Waiting for thread termination
+
+- Joinable thread: exit status for thread is retained until another thread calls join
+  - pthread_join(tid, void \**status)
+  - Can only wait for specific thread for which id is known
+- Detached thread: exit status not retained
+  - pthread_detach(tid)
+  - Detaches an existing thread
+
+## Race conditions
+
+- Unpredictable interleaved execution can lead to race conditions when accessing shared resources
+  - Between signal handlers and main execution path
+  - Between processes(e.g. file access)
+  - Between threads(global, static variables)
+- Solutions
+  - Use atomic(uninterruptable) commands(e.g sigsuspend)
+  - Use locking to make a series of commands uninterruptible(e.g. sigprocmask)
+  - Get rid of shared resources
+- Thread libraries provide such mechanisms for threads
+
+## Memory Layout
+
+![Memory Layout](/resources/images/net_cent/memorylayout.png)
+
+## Shared Variables
+
+- Threads
+  - Global and static variables
+  - Dynamic memory if pointer is shared(but not if local pointers are used and malloc is called separately in each thread)
+- Processes
+  - None(unless specifically allocated in shared memory)
 
 ## Locking
 
