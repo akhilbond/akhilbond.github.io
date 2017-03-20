@@ -793,3 +793,38 @@ pthread_mutex_lock(&childsum_mutex);
 - Thread safe functions - functions which can be used without using a MUTEX lock
   - The only way to identify if a function is thread safe is to read the documentation for the function
   - A list of some functions that are NOT thread safe are listed on the man page for pthreads
+
+## Threads Intercommunication
+
+- How can we allow one thread to notify another thread of a specific activity that has occurred?
+  - Condition Variables
+- Condition variables are mechanisms which allow you to wait for a condition to become true and then proceed in a thread safe manner
+  - Waits and releases lock for the duration of the waiting period
+  - ```pthread_cond_wait(pthread_cond_t, pthread_mutex_t);``` - The calling thread unlocks the mutex and then goes to sleep or waits
+  - ```pthread_cond_signal(pthread_cond_t);``` - The calling thread sends a conditional signal to another thread
+
+
+## Signals
+
+### Signal Names
+
+- Signal: Soft Interrupt
+- Kill commands sends signals to processes
+- Interrupt numbers mapped to names
+  - SIGSEGV
+  - SIGKILL
+  - SIGUSR1
+  - SIGUSR2
+  - SIGINT
+  - SIGTERM
+  - SIGALARM
+  - SIGCHILD
+- More are listed on page 7 of the man page for signal
+
+### Catching a signal
+
+- Signals handlers can be written to take in a signal and interpreting the signal
+- SIGKILL, SIGSTOP cannot be ignored
+- No library functions, and no static storage should be used
+
+### Creating signals
