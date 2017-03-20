@@ -828,3 +828,79 @@ pthread_mutex_lock(&childsum_mutex);
 - No library functions, and no static storage should be used
 
 ### Creating signals
+
+
+
+<hr>
+
+# Midterm
+
+## I/O
+
+- Standard I/O
+- Low-level I/O functions
+- Indirection and redirection through file descriptors
+  - 3 Default file descriptors
+    - STDOUT_FILENO = \#1
+    - STDIN_FILENO = \#0
+    - STDERR_FILENO = \#2
+- Handling Errors - ERRNO - perror
+- Buffering
+- Binary vs. ASCII representation
+  - ASCII representation is 1 byte for each character in the string
+  - Binary form - ```char a = 17;```
+  - ASCII form - ```char* a = "17";```
+  - Network clients expect things in ASCII encoding
+
+
+## Network Sockets
+
+- Focused on TCP("STREAM sockets")
+- Initializing
+  - Server-side
+    - socket()
+    - bind() -  Specifies port number
+    - listen()
+    - accept()
+    - read()
+    - write()
+    - close()
+  - Client-side - Connections are started by the client
+    - socket()
+    - connect()
+    - write()
+    - read()
+    - close()
+- DNS names vs. IP addresses
+  - gethostbyname
+  - inet_pton
+  - inet_ntop
+- Port numbering
+  - Port numbers that we don't want to use is anything less than 1000
+    - Numbers less than 1000 are already reserved by the machine
+
+## Concurrent Servers and Programs
+
+- Processes - more overhead than threads & harder to share resources
+  - Fork
+  - Waiting and termination
+  - Shared resources
+    - Files
+    - [Variables copied at the time of fork]
+  - IPC
+    - Pipes
+    - Sockets
+  - File locks - to prevent race conditions
+- Threads
+  - Shared resources
+    - Memory on the heap - malloc
+    - Static variables
+    - Global variables
+    - Anything shared for processes
+  - Mutex - to prevent race conditions
+    - Should contain the minimal critical region
+      - Minimal critical region - smallest region of code that should not be interpreted during execution
+  - Deadlock
+    - A lock is never released and then thread tries to get another lock which is held by another thread, so then the program then just halts because threads are not releasing locks and cannot get the desired locks
+  - Condition Variable
+- Basic Signals
