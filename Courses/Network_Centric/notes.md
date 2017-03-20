@@ -750,7 +750,7 @@ Accept-Charset: iso-8859-1,*,utf-8 
 
 ## Memory Layout
 
-![Memory Layout](/resources/images/net_cent/memorylayout.png)
+<img src="/resources/images/net_cent/memorylayout.png" alt="Memory Layout" height="500" width="400">
 
 ## Shared Variables
 
