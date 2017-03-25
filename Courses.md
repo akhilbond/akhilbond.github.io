@@ -14,9 +14,10 @@ Some of the languages that I'm familiar with are :
 - LabVIEW
 - SAS
 - C
+- Matlab
 - VHDL
 - [Python](Python/)
-- [Android](android/)
+- Android
 
 <h1><u>Courses</u></h1>
 - [Data Structures](Data_Structures/)
