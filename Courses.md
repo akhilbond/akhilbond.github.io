@@ -31,9 +31,3 @@ Some of the languages that I'm familiar with are :
 - [Network Centric Programming](Network_Centric/)
 - [Intro to Microeconomics](micro)
 - [Discrete Mathematics](discrete)
-
-<h1><u>Miscellaneous</u></h1>
-
-- [ROS](ROS/)
-- [Python](Python/)
-- [C++](C++/)
