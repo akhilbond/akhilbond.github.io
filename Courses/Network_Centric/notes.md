@@ -833,7 +833,7 @@ pthread_mutex_lock(&childsum_mutex);
 
 <hr>
 
-# Midterm
+# Midterm Topics
 
 ## I/O
 
@@ -851,7 +851,6 @@ pthread_mutex_lock(&childsum_mutex);
   - Binary form - ```char a = 17;```
   - ASCII form - ```char* a = "17";```
   - Network clients expect things in ASCII encoding
-
 
 ## Network Sockets
 
@@ -904,3 +903,15 @@ pthread_mutex_lock(&childsum_mutex);
     - A lock is never released and then thread tries to get another lock which is held by another thread, so then the program then just halts because threads are not releasing locks and cannot get the desired locks
   - Condition Variable
 - Basic Signals
+
+<hr>
+
+## I/O multiplexing
+
+### Connected to UDP Socket
+
+- Use same "connect" call as TCP
+- Differences
+  - All detected errors are returned to the application
+  - Cannot specify destination on per packet basis(use write or send instead of sendto)
+  - Only received packets from the connected peer are returned
