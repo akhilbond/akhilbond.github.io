@@ -11,7 +11,7 @@ This is a demo of the [blynk server](http://www.blynk.cc/) in conjunction with t
 <br>
 
 1. Download the Blynk application on your smartphone.
-- You should create an account using your email or facebook.
+- You should create an account using your email or facebook.<br>
 
 
 
@@ -21,8 +21,6 @@ This is a demo of the [blynk server](http://www.blynk.cc/) in conjunction with t
 - Choose **Raspberry Pi 3 B** as the device.
 - **MAKE SURE TO SAVE THE EMAIL WITH THE AUTH TOKEN FOR THE PROJECT**
 
-<br>
-<br>
 
 3. Get the raspberry pi updated and ready
   - Install Raspian on the sd card for the pi
