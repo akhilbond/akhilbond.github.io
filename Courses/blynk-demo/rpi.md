@@ -27,7 +27,7 @@ This is a demo of the [blynk server](http://www.blynk.cc/) in conjunction with t
 
 5.  Select a few gpio pins to use on the pi and connect jumper cables to them. Also add a jumper cable to the ground gpio pin
 
-![Rapsberry Pi Pinout]() <br><br>
+![Rapsberry Pi Pinout](/resources/images/pi-gpio.png) <br><br>
 
 6. Connect the gpio jumper cables to the positive lead of the led(long pin).
 - Connect the ground jumper cable to the ground bar of the bread board.
