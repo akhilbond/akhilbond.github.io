@@ -13,10 +13,10 @@ This is a demo of the [blynk server](http://www.blynk.cc/) in conjunction with t
 1. Download the Blynk application on your smartphone.
 - You should create an account using your email or facebook.
 
-<br>
-<br>
+
 
 2. Create a project in the Blynk app.
+
 - Add a project name or your choosing.
 - Choose **Raspberry Pi 3 B** as the device.
 - **MAKE SURE TO SAVE THE EMAIL WITH THE AUTH TOKEN FOR THE PROJECT**
