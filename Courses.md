@@ -3,6 +3,12 @@ layout: page
 title: Courses
 permalink: /Courses/
 ---
+
+### Blynk Demo page
+
+- [Blynk demo](blynk-demo/)
+
+
 This is page is for a overview of programming languages.
 
 Some of the languages that I'm familiar with are :
