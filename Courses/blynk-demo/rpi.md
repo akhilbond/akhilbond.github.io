@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Blynk Library demo
-permalink: /Courses/blynk-library/
+permalink: /Courses/blynk-demo/
 ---
 
 # Blynk Server
