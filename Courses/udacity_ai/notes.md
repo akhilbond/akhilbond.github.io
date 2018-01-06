@@ -139,4 +139,4 @@ function graph_search(problem):
 
 ## Probabilities
 
-- Complimentary probability - $$ P(A) = p $$ => $$ P(~A) = 1-p $$
+- Complimentary probability - $$ P(A) = p $$ -> $$ P(~A) = 1-p $$
