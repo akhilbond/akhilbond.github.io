@@ -102,7 +102,7 @@ function graph_search(problem):
 
 - An example of a state space is the vacuum world shown below. In this space, the vacuum can be in either space a or b. Also, space a or b can be dirty or clean.
 
-![Vacuum world](/resources/images/udacity_ai/vacuum_world.JPG)
+![Vacuum world](/resources/images/udacity_ai/vac_world.JPG)
 
 - The state space above has 8 spaces because there are 2 places where the vacuum can be, and 4 combinations of the spaces to be dirty and clean. The diagram of all the states in the state space are shown below.
 
@@ -139,4 +139,8 @@ function graph_search(problem):
 
 ## Probabilities
 
-- Complimentary probability - $$ P(A) = p $$ -> $$ P(~A) = 1-p $$
+- Complimentary probability - $$ P(A) = p $$ &rightarrow; $$ P(~A) = 1-p $$
+- Independence - If two variables, x and y, are independent, then the joint probability of the two variables is the product of probability of x and probability or y.
+- Dependence - One probability depends on the probability of another event. An example of a dependence problem is shown below.
+![Dependence Example](/resources/images/udacity_ai/dependence.PNG)
+- Law of Total Probability - $$ P(Y) = \sum_{i} P(Y|X=i)\*P(X=i) $$
