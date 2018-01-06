@@ -139,8 +139,10 @@ function graph_search(problem):
 
 ## Probabilities
 
-- Complimentary probability - $$ P(A) = p $$ &rightarrow; $$ P(~A) = 1-p $$
+- Complimentary probability - $$ P(A) = p \to P(\bar{A}) = 1-p $$
 - Independence - If two variables, x and y, are independent, then the joint probability of the two variables is the product of probability of x and probability or y.
 - Dependence - One probability depends on the probability of another event. An example of a dependence problem is shown below.
+
 ![Dependence Example](/resources/images/udacity_ai/dependence.PNG)
-- Law of Total Probability - $$ P(Y) = \sum_{i} P(Y|X=i)\*P(X=i) $$
+
+- Law of Total Probability - $$ P(Y) = \sum_{i}^{n} P(Y|X=i)\timesP(X=i) $$
