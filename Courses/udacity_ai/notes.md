@@ -269,3 +269,31 @@ $$P(R|S)$$.
 
 We can immediately say that
 $$P(R|S) = 0.01$$ because the information of a sunny day(S) or getting a raise(R) affect happiness, but they don't affect each other. This means that they are independent of each other.
+
+<br>
+
+<u><b> Problem: </b></u>
+
+Find
+$$P(R|H,S)$$.
+
+We can expand
+$$P(R|H,S)$$ by utilizing Bayes rule. The resulting equation is given below.
+
+$$P(R|H,S) = \frac{P(H|R,S) \cdot P(R|S)}{P(H|S)}$$
+
+Then by observing the conditional independence of R and S, we can simply the equation to
+
+$$ \frac{P(H|R,S) \cdot P(R|S)}{P(H|S)} = \frac{P(H|R,S) \cdot P(R)}{P(H|R,S) \cdot P(R) + P(H|\bar{R},S) \cdot P(\bar{R})} $$
+
+The by utilizing the given information, we can state that
+$$P(R|H,S) = 0.0142$$.
+
+<br>
+
+<u><b> Problem: </b></u>
+
+Find
+$$P(R|H)$$.
+
+---
