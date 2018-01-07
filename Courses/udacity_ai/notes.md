@@ -5,7 +5,7 @@ permalink: /Courses/udacity_ai/
 mathjax: true
 ---
 
-# Unit 1 - Intro to AI
+# Unit 1 - Intro
 
 ## Intelligent Agents
 
@@ -141,8 +141,68 @@ function graph_search(problem):
 
 - Complimentary probability - $$ P(A) = p \to P(\bar{A}) = 1-p $$
 - Independence - If two variables, x and y, are independent, then the joint probability of the two variables is the product of probability of x and probability or y.
+- Law of Total Probability -
+$$ P(Y) = \sum_{i} P(Y|X=i) \cdot P(X=i) $$
+- Negation of probabilities -
+$$ P(\bar{X}|Y) = 1 - P(X|Y) $$
 - Dependence - One probability depends on the probability of another event. An example of a dependence problem is shown below.
 
 ![Dependence Example](/resources/images/udacity_ai/dependence.PNG)
 
-- Law of Total Probability - $$ P(Y) = \sum_{i}^{n} P(Y|X=i)\timesP(X=i) $$
+<br>
+
+### Bayes Rule
+
+- Bayes Rule -
+$$ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} $$ or $$ P(\bar{A}|B) = \frac{P(B|\bar{A}) \cdot P(A)}{P(B)} $$
+
+- We can write Bayes rule differently by just writing it with ignoring the normalizing terms(denominators). This gives us the equations below.
+
+ $$ P'(A|B) = P(B|A) \cdot P(A) $$
+
+ $$ P'(\bar{A}|B) = P(B|\bar{A}) \cdot P(\bar{A}) $$
+
+- Then, we must get the original probability by normalizing the equations. We do this by using the equation above and the traditional definition of Bayes rule, we get the following equations
+
+$$ P(A|B) = \eta \cdot P'(A|B) $$
+
+$$ P(\bar{A}|B) = \eta \cdot P'(\bar{A}|B) $$
+
+- The factor $$ \eta $$ is the normalizing factor. The equation for $$ \eta $$ is given below.
+
+$$ \eta = (P'(A|B) + P'(\bar{A}|B))^{-1} $$
+
+
+
+### Two Test Cancer Example
+
+<u> Terminology </u>
+- Probability of positive cancer test = $$P(+)$$
+- Probability of negative cancer test = $$P(-)$$
+- Probability of having cancer = P($$C$$)
+- Probability of not having cancer = P($$\bar{C}$$)
+
+<u> Given info: </u>
+
+| $$P(C) = 0.01$$ | $$P(\bar{C}) = 0.99$$ |
+| $$P(+\|C) = 0.9$$ | $$P(-\|C) = 0.1$$ |
+| $$P(-\|\bar{C}) = 0.8$$ | $$P(+\|\bar{C}) = 0.2$$ |
+{:.mbtablestyle}
+
+<br>
+
+Find
+$$P(C|++)$$.
+
+To find
+$$P(C|++)$$
+we can utilize Bayes rule.
+
+| | $$P(C)$$ | $$+$$ | $$+$$ | $$P'$$ |
+| $$ C $$ | 0.01 | 0.9 | 0.9 | 0.0081 |
+| $$ \bar{C} $$ | 0.99 | 0.2 | 0.2 | 0.0396 |
+{:.mbtablestyle}
+
+<br>
+
+Then by adding the $$ P' $$ probabilities and then inverting, we can calculate $$ \eta $$

@@ -20,6 +20,10 @@ Some of the languages that I'm familiar with are :
 - Android
 - [Web Dev](webdev/)
 
+<br>
+
+- [Intro to AI - Udacity course](udacity_ai/)
+
 <h1><u>Courses</u></h1>
 - [Data Structures](Data_Structures/)
 - Computer Architecture
