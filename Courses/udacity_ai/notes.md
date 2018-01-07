@@ -149,7 +149,10 @@ $$ P(\bar{X}|Y) = 1 - P(X|Y) $$
 
 ![Dependence Example](/resources/images/udacity_ai/dependence.PNG)
 
-<br>
+- Conditional Independence - Given the Bayes Network shown below, if given A, then B is independent of C.
+  - Conditional independence does not imply absolute independence and absolute independence does not imply conditional independence.
+
+![Conditional Independence](/resources/images/udacity_ai/conditional_indep.PNG){:height="20%" width="20%"}
 
 ### Bayes Rule
 
@@ -172,17 +175,19 @@ $$ P(\bar{A}|B) = \eta \cdot P'(\bar{A}|B) $$
 
 $$ \eta = (P'(A|B) + P'(\bar{A}|B))^{-1} $$
 
+---
 
+#### Two Test Cancer Example
 
-### Two Test Cancer Example
-
-<u> Terminology </u>
+<u><b> Terminology </b></u>
 - Probability of positive cancer test = $$P(+)$$
 - Probability of negative cancer test = $$P(-)$$
 - Probability of having cancer = P($$C$$)
 - Probability of not having cancer = P($$\bar{C}$$)
 
-<u> Given info: </u>
+<u><b> Given info: </b></u>
+
+![Conditional Independence](/resources/images/udacity_ai/cond_indep_ex.PNG){:height="15%" width="15%"}
 
 | $$P(C) = 0.01$$ | $$P(\bar{C}) = 0.99$$ |
 | $$P(+\|C) = 0.9$$ | $$P(-\|C) = 0.1$$ |
@@ -190,6 +195,8 @@ $$ \eta = (P'(A|B) + P'(\bar{A}|B))^{-1} $$
 {:.mbtablestyle}
 
 <br>
+
+<u><b> Problem: </b></u>
 
 Find
 $$P(C|++)$$.
@@ -203,6 +210,62 @@ we can utilize Bayes rule.
 | $$ \bar{C} $$ | 0.99 | 0.2 | 0.2 | 0.0396 |
 {:.mbtablestyle}
 
+Then by adding the $$ P' $$ probabilities and then inverting, we calculate $$ \eta $$ is 20.9644. Then by multiplying the $$ \eta $$ factor by the $$ P' $$ values, we can calculate that
+$$P(C|++) = 0.1698$$.
+
 <br>
 
-Then by adding the $$ P' $$ probabilities and then inverting, we can calculate $$ \eta $$
+<u><b> Problem: </b></u>
+
+Find
+$$P(T_{2}=+|T_{1}=+)$$.
+
+To find
+$$P(T_{2}=+|T_{1}=+)$$
+we can utilize the Theorem of Total Probability. With that, we can write the following equation.
+
+ $$P(T_{2}=+|T_{1}=+) = P(T_{2} = +|T_{1} = +, C) \cdot P(C|T_{1} = +) + P(T_{2} = +|T_{1} = +,\bar{C}) \cdot P(\bar{C}|T_{1} = +) $$
+
+Then by evaluating the expression, we get that
+$$P(T_{2}=+|T_{1}=+) = 0.2301$$.
+
+---
+
+## Confounding Cause Bayes Networks
+
+- Confounding cause Bayes networks are like the traditional Bayes networks that we studied before, just with two independent hidden causes that get confounded into a single observational variable.
+
+- The general shape of a Bayes network for confounding cause is shown below.
+
+![Confounding Cause](/resources/images/udacity_ai/confounding_net.PNG){:height="15%" width="15%"}
+
+---
+
+#### Happiness Example
+
+<u><b> Terminology </b></u>
+- Probability of being sunny = $$P(S)$$
+- Probability of raise = $$P(R)$$
+- Probability of happiness = P($$H$$)
+- Probability of not happiness = P($$\bar{H}$$)
+
+<u><b> Given info: </b></u>
+
+![Happiness Bayes Net](/resources/images/udacity_ai/happy_network.PNG){:height="15%" width="15%"}
+
+| $$ P(S) = 0.7 $$ |
+| $$ P(R) = 0.01 $$ |
+| $$ P(H\|S,R) = 1 $$ |
+| $$ P(H\|\bar{S},R) = 0.9 $$ |
+| $$ P(H\|S,\bar{R}) = 0.7 $$ |
+| $$ P(H\|\bar{S},\bar{R}) = 0.1 $$ |
+
+<br>
+
+<u><b> Problem: </b></u>
+
+Find
+$$P(R|S)$$.
+
+We can immediately say that
+$$P(R|S) = 0.01$$ because the information of a sunny day(S) or getting a raise(R) affect happiness, but they don't affect each other. This means that they are independent of each other.
