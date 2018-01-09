@@ -139,24 +139,24 @@ function graph_search(problem):
 
 ## Probabilities
 
-- Complimentary probability - $$ P(A) = p \to P(\bar{A}) = 1-p $$
-- Independence - If two variables, x and y, are independent, then the joint probability of the two variables is the product of probability of x and probability or y.
-- Law of Total Probability -
+- **Complimentary probability** - $$ P(A) = p \to P(\bar{A}) = 1-p $$
+- **Independence** - If two variables, x and y, are independent, then the joint probability of the two variables is the product of probability of x and probability or y.
+- **Law of Total Probability** -
 $$ P(Y) = \sum_{i} P(Y|X=i) \cdot P(X=i) $$
-- Negation of probabilities -
+- **Negation of probabilities** -
 $$ P(\bar{X}|Y) = 1 - P(X|Y) $$
-- Dependence - One probability depends on the probability of another event. An example of a dependence problem is shown below.
+- **Dependence** - One probability depends on the probability of another event. An example of a dependence problem is shown below.
 
 ![Dependence Example](/resources/images/udacity_ai/dependence.PNG)
 
-- Conditional Independence - Given the Bayes Network shown below, if given A, then B is independent of C.
+- **Conditional Independence** - Given the Bayes Network shown below, if given A, then B is independent of C.
   - Conditional independence does not imply absolute independence and absolute independence does not imply conditional independence.
 
 ![Conditional Independence](/resources/images/udacity_ai/conditional_indep.PNG){:height="20%" width="20%"}
 
 ### Bayes Rule
 
-- Bayes Rule -
+- **Bayes Rule** -
 $$ P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)} $$ or $$ P(\bar{A}|B) = \frac{P(B|\bar{A}) \cdot P(A)}{P(B)} $$
 
 - We can write Bayes rule differently by just writing it with ignoring the normalizing terms(denominators). This gives us the equations below.
@@ -296,4 +296,31 @@ $$P(R|H,S) = 0.0142$$.
 Find
 $$P(R|H)$$.
 
+We first find the variable $$P(H)$$. The value of the variable is shown below.
+
+$$ P(H) = P(H|S,R) \cdot P(S,R) + P(H|\bar{S},R) \cdot P(\bar{S},R) + P(H|S,\bar{R}) \cdot P(S,\bar{R}) + P(H|\bar{S},\bar{R}) \cdot P(\bar{S},\bar{R}) $$
+
+This can be expanded by plugging in the values from the given data above.
+
+$$ P(H) = 0.5245 $$
+
+Then by using Bayes rule, we can get an equation for
+$$ P(R|H) $$.
+
+$$ P(R|H) = \frac{P(H|R) \cdot P(R)}{P(H)} $$
+
+We know the value of $$P(R)$$ from the given information and we can get an equation for
+$$P(H|R)$$ using the Law of Total Probability.
+
+$$ P(H|R) = P(H|R,S) \cdot P(S) + P(H|R,\bar{S}) \cdot P(\bar{S}) = 0.97 $$
+
+So now that we have all the values we need, we can plug them into the equation for
+$$P(R|H)$$.
+
+$$ P(R|H) = \frac{0.97 \cdot 0.01}{0.5245} = 0.0185 $$
+
 ---
+
+### Conditional Dependence
+
+- In the examples using the Bayes network about happiness, we see that if the problem doesn't reference anything about happiness, then the probability of getting a raise the probability for it being sunny are independent. However, when we introduce information about happiness, it introduces a dependence on R and S. This is known as **conditional dependence**.
