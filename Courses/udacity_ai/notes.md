@@ -324,3 +324,25 @@ $$ P(R|H) = \frac{0.97 \cdot 0.01}{0.5245} = 0.0185 $$
 ### Conditional Dependence
 
 - In the examples using the Bayes network about happiness, we see that if the problem doesn't reference anything about happiness, then the probability of getting a raise the probability for it being sunny are independent. However, when we introduce information about happiness, it introduces a dependence on R and S. This is known as **conditional dependence**.
+
+### General Bayes Networks
+
+- Bayes Networks define probability distributions over graphs or random variables.
+
+- We can find the number of probability values needed to specify a specific bayes network by summing the amount of values needed per node. We can calculate the number of probability values needed at each node by using the equation $$ Values = 2^{N} $$, where N is the number of incoming arcs at the particular node.
+
+### D-Seperation
+
+- Any 2 variables are independent if they're linked with nodes that we know the value of.
+
+- **Active triplets**
+  - Render them dependent
+  - Some examples of active triples are
+    ![Active triplets](/resources/images/udacity_ai/active_triplets.PNG){:height="15%" width="15%"}
+- **Inactive triplets**
+  - Render them independent
+  - Some examples of inactive triples are
+    ![Active triplets](/resources/images/udacity_ai/inactive_triplets.PNG){:height="15%" width="15%"}
+
+
+# Unit 4 - Probabilistic Inference
