@@ -22,3 +22,9 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+pages_list:
+  Projects: '/Projects'
+  Courses: '/Courses'
+  Blog: '/Blog'
+  About: '/About'
