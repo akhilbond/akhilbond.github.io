@@ -133,6 +133,7 @@ $on-laptop:        800px;
 }
 #cssmenu > ul > li.active > a {
   color: #dff2fa;
+  background: #dd4444;
   font-size: 16px;
 }
 #cssmenu > ul > li:hover > a,
@@ -170,7 +171,7 @@ $on-laptop:        800px;
 }
 #cssmenu > ul > li:hover > a::before,
 #cssmenu > ul > li > a:hover::before {
-  background: #696969;
+  background: #dd4444;
 }
 #cssmenu.small-screen {
   width: 100%;
