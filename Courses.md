@@ -35,3 +35,4 @@ Some of the languages that I'm familiar with are :
 - [Network Centric Programming](Network_Centric/)
 - [Intro to Microeconomics](micro)
 - [Discrete Mathematics](discrete)
+- [Intro to Artificial Intelligence](intro_to_ai/)

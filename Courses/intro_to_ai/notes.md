@@ -79,7 +79,7 @@ mathjax: true
   - **Transition model** - the effect of each action
   - **Path cost** - function that assigns a numeric cost to each path.
 
-- The initial state, actions, and transition model together implicictly define the **state space** of a problem.
+- The initial state, actions, and transition model together implicitly define the **state space** of a problem.
 
 - A **path** is a sequence of states connected by a sequence of actions.
   - The cost of a path is the sum of the costs of the individual actions along the path. The step cost of an action, $$a$$, in state $$s$$ to reach state $$s'$$ is denoted by $$c(s,a,s')$$.
