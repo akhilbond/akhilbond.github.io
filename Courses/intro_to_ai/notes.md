@@ -33,7 +33,7 @@ mathjax: true
   - Knowledge Representation
   - Automated Reasoning
   - Machine Learning
-- For the complete Turing test, the program would also posses computer vision to interpret the question, and robotics to manipulate objects to write a response.
+- For the complete Turing test, the program would also posses *computer vision* to interpret the question, and *robotics* to manipulate objects to write a response.
 
 #### Thinking Rationally
 
@@ -48,8 +48,9 @@ mathjax: true
 
 - An **agent** is something that can perceive its environment through sensors and acting upon that environment through actuators.
 - **Precept** - the agent's perceptual inputs at any given instance. A **precept sequence** is the complete history of what the agent has perceived.
-- The **agent function** maps any given precept to an action.
+- The **agent function** maps any given precept or precept sequence to an action.
 - A **rational agent** is an agent that acts to achieve the best expected outcome.
+- To measure the performance of an agent, we must define a measure of performance. Some way to quantize the performance of the agent.
 - Properties of agent environments are defined in the table below.
 
 | **Fully Observable**     | Only whatever your agent can sense at a given time is sufficient to make the optimal decision     |
@@ -60,11 +61,17 @@ mathjax: true
 | **Continuous** | An environment where the space of possible actions or things you can sense may be infinite. |
 | **Benign** | The environment might be random, stochastic, but it has no objective of its own that would contradict your objective |
 | **Adversarial** | The environment might be random, stochastic, but it has an objective of its own to contradict your objective. |
+| **Single Agent** | The environment only contains one agent at a time. |
+| **Multiagent** | The environment may contain several agents at a time. |
+| **Episodic** | An environment where an agent only has to do one action to complete its task. |
+| **Sequential** | An environment where an agent must take more than one action to complete its task. |
+| **Known** | An environment where the agent knows all the possible attributes of the environment. |
+| **Unknown** | An environment where the agent doesn't know the attributes of the environment. |
 {:.mbtablestyle}
 
 <br>
 
-#### **IN THIS COURSE, WE ASSUME THAT THE ENVIRONMENT IS KNOWN AND *FULLY OBSERVABLE*, AND ACTIONS ARE *DETERMINISTIC*.**
+#### **IN THIS COURSE, WE ASSUME THAT THE ENVIRONMENT IS KNOWN AND *FULLY OBSERVABLE*, AND ACTIONS ARE *DETERMINISTIC*. THE ENVIRONEMENTS WILL ALSO BE SINGLE AGENT.**
 
 <br>
 
@@ -82,4 +89,4 @@ mathjax: true
 - The initial state, actions, and transition model together implicitly define the **state space** of a problem.
 
 - A **path** is a sequence of states connected by a sequence of actions.
-  - The cost of a path is the sum of the costs of the individual actions along the path. The step cost of an action, $$a$$, in state $$s$$ to reach state $$s'$$ is denoted by $$c(s,a,s')$$.
+  - The cost of a path is the sum of the costs of the individual actions along the path. The **step cost** of an action, $$a$$, in state $$s$$ to reach state $$s'$$ is denoted by $$c(s,a,s')$$.

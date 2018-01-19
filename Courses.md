@@ -18,11 +18,12 @@ Some of the languages that I'm familiar with are :
 - VHDL
 - [Python](Python/)
 - Android
-- [Web Dev](webdev/)
+
 
 <br>
 
 - [Intro to AI - Udacity course](udacity_ai/)
+- [Web Dev - Udemy course](webdev/)
 
 <h1><u>Courses</u></h1>
 - [Data Structures](Data_Structures/)
