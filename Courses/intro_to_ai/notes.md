@@ -90,3 +90,166 @@ mathjax: true
 
 - A **path** is a sequence of states connected by a sequence of actions.
   - The cost of a path is the sum of the costs of the individual actions along the path. The **step cost** of an action, $$a$$, in state $$s$$ to reach state $$s'$$ is denoted by $$c(s,a,s')$$.
+- A **solution** to a problem is a sequence of actions that leads from the initial state to the goal state. A solution with the lowest path cost is an **optimal solution**.
+
+---
+
+<u>Vacuum World Example</u>
+
+This world contains a vacuum the two rooms, A and B. The vacuum has the actions left/right to move between rooms, and suck to get rid of the dirt in a given room.
+
+![Vacuum World](/resources/images/intro_to_ai/vacuum_world.PNG){:height="25%" width="25%"}
+
+The state space of the problem is shown below.
+
+![Vacuum World State Space](/resources/images/intro_to_ai/vacuum_world_state_space.PNG)
+
+The formal description of the Vacuum World is
+
+- States: There are 2 rooms that may or may not contain dirt and there are 2 positions for the robot. There are $$ 2 \cdot 2^{2} = 8 $$ possible world states.
+- Initial State: Any state can be the initial state.
+- Goal State: Having both the rooms clean. This is seen in the bottom two states of the state space.
+- Actions: Move left, Move right, suck
+- Transition model: The actions have their expected effects. Moving left or right, moves the robot accordingly. Moving left in the left space or moving right in the right space have no effect on the position of the robot.
+- Path cost: Each action has a cost of 1.
+
+---
+
+### Search Trees
+
+- A solution to a problem is an action sequence. Search algorithms work by considering various possible action sequences and finding the optimal one as a solution. All the possible action sequences starting from the initial state from a **search tree** with the initial state at the root. The branches are actions and the **nodes** correspond to the states in the problem's state space.
+- The process of finding the goal state in the tree is called **tree searching**
+
+### Tree Search
+
+- A node is **expanded** when all it's children are added to the search tree.
+- The set of nodes that have already been added to the search, but have not yet been expanded is called the **open list**, **fringe**, or **frontier**.
+- A generic algorithm for tree searching is
+
+```
+function tree_search(problem):
+  fringe = {Initial State}
+  loop:
+    if fringe is empty : return FAIL
+    s = remove_choice(fringe)
+    if s is a goal : return path
+    for a in actions: //Expand current node
+      add [result(s,a)] to fringe
+```
+
+- The tree search starts by initializing the fringe with the initial state of the problem. Then enters a loop where it first checks to see if there are any nodes in the fringe. If there are no nodes, it returns a failure. If there are nodes in the fringe, we choose a node, s, and remove it from the fringe. If s is a goal state, the program then returns the path it took from the root to node s. If it is not a goal state, then we expand state s. We look at all the actions that can be done at the state, and add the resulting nodes to the fringe.
+- Search algorithms vary with the way they remove from and add to the fringe.
+
+### Graph Search
+
+- The set of expanded nodes is called the **closed list** or **explored list**.
+- In tree searches, there can be several repeated nodes in the search tree. To avoid these redundant paths, graph searching keeps tracks of explored nodes as well.
+- A generic algorithm for graph searching is
+
+```
+function graph_search(problem):
+  fringe = {Initial}; explored = {}
+  loop:
+    if fringe is empty : return FAIL
+    s = remove_choice(fringe)
+    add s to explored
+    if s is a goal : return path
+    for a in actions:
+      add [path + a -> result(s,a)] to fringe
+      unless result(s,a) is in fringe and explored
+```
+
+- This algorithm is similar to the tree search algorithm, but with a few added steps. When we start the search, we initialize the explored set which holds the states that we have already explored. Then when we choose a new node, we add it to the set of explored nodes. Also, when we expand the new node, we don't add in a node if we have already encountered that node in the fringe or the explored sets to eliminate the redundancy.
+
+### Implementing a Search Tree algorithm
+
+- In a search tree, each node, n, is represented by a data structure that contains the fields of
+  - **n.State**: the state the node corresponds to
+  - **n.Parent**: the parent of node n
+  - **n.Action**: the action from n.Parent that leads to node n
+  - **n.Path-cost**: the cost of the path from root to the current node, denoted by $$g(n)$$
+  - **n.Depth**: number of nodes from root to current node
+
+- A generic child node is
+
+```
+function CHILD-NODE(problem, parent, action) returns a node
+  return a node with
+    STATE = problem.RESULT(parent.STATE, action),
+    PARENT = parent, ACTION = action,
+    PATH-COST = parent.PATH-COST + problem.STEP-COST(parent.STATE, action)
+```
+
+- The nodes are kept in a queue. The operations on a queue are
+  - **EMPTY?(queue)**: returns true if the queue is empty
+  - **POP(queue)**: removes the first element and returns it
+  - **INSERT(element, queue)**: insert an element and returns the resulting queue. This is also known as PUSH.
+  - **INITIALIZE(element)**: returns a queue that contains the element
+- Queues are categorized by the order in which they store the inserted nodes
+  - **FIFO**: first-in, first-out
+  - **LIFO**: last-in, first-out
+  - **Priority**: pops the element with the highest priority according to a priority function
+
+- The four criteria used to compare various search tree algorithms are
+  - **Completeness**: Is the algorithm guaranteed to find a solution when there is one?
+  - **Optimality**: Does the strategy find the optimal solution?
+  - **Time Complexity**: How long does it take to find a solution?
+  - **Space Complexity**: How much memory is needed to perform the search?
+- The following parameters are used to calculate and compare the performance of an algorithm:
+  - **b**: the maximum branching factor(number of children per node)
+  - **d**: the depth of the shallowest goal state
+  - **m**: maximum length of a path in the tree
+- The **search cost** or a search algorithm refers to the time complexity. However, it can also include a term for the memory usage, and when it does, it is known as **total cost**. This combines the search cost and the path cost of the algorithm.
+
+### Uninformed Search Strategies
+
+- An uninformed search algorithm means the strategies have no additional information about the states beyond that provided in the problem definition.
+- Some uninformed search algorithms are
+  - Breadth-first search
+  - Uniform-cost search
+  - Depth-first search
+  - Depth-limited search
+  - Iterative deepening depth-first search
+  - Bidirectional search
+
+#### Breadth-First Search (BFS)
+
+- BFS expands all the nodes in current level first before expanding the nodes at the next level.
+- BFS always has the shallowest path to every node in the frontier.
+- BFS is optimal and complete.
+- An example of BFS is
+
+![BFS](/resources/images/intro_to_ai/BFS.PNG)
+
+- A generic BFS algorithm is
+
+```
+function BREADTH-FIRST-SEARCH(problem) returns a solution, or failure
+  n <- a node with STATE = problem.INITIAL-STATE, PATH-COST = 0
+  if problem.GOAL-TEST(n.STATE) then return SOLUTION(n)
+  frontier <- a FIFO queue with n as the only element
+  explored <= an empty set
+  loop:
+    if EMPTY?(frontier) then return failure
+    n <- POP(frontier) // Chooses the closest node in the frontier
+    add n.STATE to explored
+    for each action in problem.ACTIONS(n.STATE) do
+      child <- CHILD-NODE(problem, n, action)
+      if child.STATE is not explored or frontier then
+        if problem.GOAL-TEST(child.STATE) then return SOLUTION(child)
+        frontier <- INSERT(child, frontier)
+```
+
+- The properties or BFS are
+  - Frontier Queue: First-in First-out (FIFO)
+  - Completeness: Complete if branching factor, b, is finite
+  - Optimality: Optimal only if all the costs of the edges are equal(shallowest path in the tree is not always the shortest is the problem)
+  - Time complexity: $$ O(\sum_{i=0}^{d-1} b^i) = O(b^d) $$
+  - Space complexity: $$ O(\sum_{i=0}^{d-1} b^i) = O(b^d) $$
+- With an exponential complexity($$O(b^d)$$) is really inefficient!
+
+#### Uniform-Cost Search
+
+- BFS is optimal only when all step costs are equal. Uniform-cost search, however, expands the node with the lowest path cost, instead of the shallowest node.
+- The queue of the fringe is ordered by path cost.
+- In BFS, all the nodes in the queue have the same path cost, and the goal test is performed when a node is generated. However, in Uniform-cost search, the nodes in the queue have different path costs. The goal test is performed when a node is expanded.

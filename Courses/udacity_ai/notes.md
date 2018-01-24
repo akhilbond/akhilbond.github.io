@@ -45,7 +45,7 @@ function tree_search(problem):
     if fringe is empty : return FAIL
     path = remove_choice(fringe)
     s = path.end
-    if is is a goal : return path
+    if s is a goal : return path
     for a in actions:
       add [path + a -> result(s,a)] to fringe
 ```
@@ -61,7 +61,7 @@ function graph_search(problem):
     if fringe is empty : return FAIL
     path = remove_choice(fringe)
     s = path.end; add s to explored
-    if is is a goal : return path
+    if s is a goal : return path
     for a in actions:
       add [path + a -> result(s,a)] to fringe
       unless result(s,a) is in fringe and explored
@@ -331,7 +331,7 @@ $$ P(R|H) = \frac{0.97 \cdot 0.01}{0.5245} = 0.0185 $$
 
 - We can find the number of probability values needed to specify a specific bayes network by summing the amount of values needed per node. We can calculate the number of probability values needed at each node by using the equation $$ Values = 2^{N} $$, where N is the number of incoming arcs at the particular node.
 
-### D-Seperation
+### D-Separation
 
 - Any 2 variables are independent if they're linked with nodes that we know the value of.
 
