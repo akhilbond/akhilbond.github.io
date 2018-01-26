@@ -176,6 +176,7 @@ function CHILD-NODE(problem, parent, action) returns a node
   - **Space Complexity**: How much memory is needed to perform the search?
 - The following parameters are used to calculate and compare the performance of an algorithm:
   - **b**: the maximum branching factor(number of children per node)
+    - If the number of children per parent vary, then we would use an effective branching factor
   - **d**: the depth of the shallowest goal state
   - **m**: the maximum length of a path in the tree
 - The **search cost** or a search algorithm refers to the time complexity. However, it can also include a term for the memory usage, and when it does, it is known as **total cost**. This combines the search cost and the path cost of the algorithm.
@@ -241,7 +242,7 @@ function BREADTH-FIRST-SEARCH(problem) returns a solution, or failure
         frontier <- INSERT(child, frontier)
 ```
 
-- The properties or BFS are
+- The properties of BFS are
   - Frontier Queue: First-in First-out (FIFO)
   - Completeness: Complete if branching factor, b, is finite
   - Optimality: Optimal only if all the costs of the edges are equal(shallowest path in the tree is not always the shortest is the problem)
@@ -254,3 +255,96 @@ function BREADTH-FIRST-SEARCH(problem) returns a solution, or failure
 - BFS is optimal only when all step costs are equal. Uniform-cost search, however, expands the node with the lowest path cost, instead of the shallowest node.
 - The queue of the fringe is ordered by path cost.
 - In BFS, all the nodes in the queue have the same path cost, and the goal test is performed when a node is generated. However, in Uniform-cost search, the nodes in the queue have different path costs. The goal test is performed when a node is expanded.
+
+
+
+- A generic Uniform Cost Search algorithm is
+
+```
+function UNIFORM-COST-SEARCH(problem) returns a solution, or failure
+  n <- a node with STATE = problem.INITIAL-STATE, PATH-COST = 0
+  frontier <- a priority queue ordered by PATH-COST, with n as the only element
+  explored <- an empty set
+  loop:
+    if EMPTY?(frontier) then return failure
+    n <- POP(frontier) // Chooses the lowest-cost node in the frontier
+    if problem.GOAL-TEST(node.STATE) then return SOLUTION(n)
+    add n.STATE to explored
+    for each action in problem.ACTIONS(node.STATE) do
+      child <- CHILD-NODE(problem, node, action)
+      if child.STATE is not in explored or frontier then
+        frontier <- INSERT(child, frontier)
+      else if child.STATE is in frontier with higher PATH-COST then
+        replace that frontier node with child
+```
+
+- The properties of Uniform-cost Search are
+  - Frontier queue: Ordered by path cost
+  - Completeness: Complete if branching factor is finite
+  - Optimality: Optimal search
+    - Whenever uniform-cost search selects a node, n, for expansion, the optimal path node has been found
+  - Time complexity: $$ O(b^{1 +\lfloor C^{*}/\epsilon \rfloor}) $$, where $$C^* $$ is the path cost of the optimal path and $$\epsilon$$ is the minimum step cost. There is a factor of 1 before because we start at the root which is position 0, which then contributes the factor of 1.
+  - Space complexity: $$ O(b^{1 +\lfloor C^{*}/\epsilon \rfloor}) $$, where $$C^* $$ is the path cost of the optimal path and $$\epsilon$$ is the minimum step cost. There is a factor of 1 before because we start at the root which is position 0, which then contributes the factor of 1.
+
+- Dijksta's algorithm is a slightly different variant of Uniform-cost search
+  - Dijksta's uses a list of unvisited verticies(initially contains all verticies), and a table that keeps track of the shortest distance to each vertex so far(initialized to infinity) instead of open and closed lists.
+
+#### Depth First Search (DFS)
+
+- DFS always expands the deepest node in the frontier first.
+- DFS can get stuck in infinite loops if visiting repeated states is allowed
+- Properties of DFS:
+  - Frontier queue: Last-in First-out (LIFO)
+  - Optimality: Not optimal, because it returns the first path that contains the goal.
+  - Time Complexity: $$ O(b^m) $$, where m is the maximum depth of any node. This is worse than BFS($$O(b^d)$$) where d is the depth of the shallowest node.
+  - Space Complexity: $$ O(b \cdot m) $$ and $$O(m)$$ when using backtracking(where we don't need to generate all the successors of each node)
+
+#### Depth Limited Search
+- In an infinite state space, DFS fails if an infinite non-goal path is encountered. To avoid getting stuck in an infinite loop, we can supply a predetermined depth limit, l.
+  - This makes the time complexity $$ O(b^l) $$
+  - This makes the space complexity $$ O(b \cdot l) $$
+
+- A generic Depth Limited Search algorithm is
+
+```
+function DEPTH-LIMITED-SEARCH(problem, limit) returns a solution, or failure/cutoff
+  return RECURSIVE-DLS(MAKE-NODE(problem.INITIAL-STATE), problem, limit)
+
+function RECURSIVE-DLS(node, problem, limit) returns a solution, or failure/cutoff
+  if problem.GOAL-TEST(node.STATE) the return SOLUTION(node)
+  else if limit=0 then return cutoff
+  else
+    cutoff_occurred? <- false
+    for each action in problem.ACTIONS(node.STATE) do
+      child <- CHILD-NODE(problem, node, action)
+      result <- RECURSIVE-DLS(child, problem, limit-1)
+      if result = cutoff then cutoff_occurred? <- true
+      else if result != failure then return result
+    if cutoff_occurred? then return cutoff else return failure
+```
+
+#### Iterative Deepening Depth-First Search
+
+- To solve a problem of choosing the right depth, l, we can start with l=0, and iteratively increase during search.
+- Iterative Deepening DFS runs repeatedly through the tree, increasing the depth limit with each iteration until it reaches the depth of the shallowest goal.
+- Iterative Deepening DFS has the space complexity of DFS of DFS and the completeness of BFS.
+
+- An example of iterative deepening DFS is
+
+![Iterative Deepening DFS](/resources/images/intro_to_ai/iterating_deepening_DFS.PNG)
+
+- Properties of Iterative Deepening DFS:
+  - Optimality: Optimal, if all the edges have the same edge cost
+  - Complete: by iteratively increasing the limit, at some point the algorithm reaches the goal and the algorithm never searches an infinite path
+  - Time Complexity: $$ O(b^d) $$, the number of nodes using depth limit, d, is equal to the number of nodes using all depths that are < d.
+  - Space Complexity: $$ O(b^d) $$, which is also the same as BFS.
+
+#### Bidirectional Search
+
+- Runs two simultaneous BFS searches: one forward from the initial state, and one backward from the goal.
+  - Then stop when both of the two BFS searches meet.
+- Bidirectional search properties:
+  - Complete: Complete, if the branching factor, b, is finite
+  - Optimality: Optimal, if all the edges have the same cost, similar to BFS
+  - Time complexity: $$ O(2b^{(\frac{d}{2})}) = O(b^{(\frac{d}{2})}) $$
+  - Space complexity: $$ O(2b^{(\frac{d}{2})}) = O(b^{(\frac{d}{2})}) $$
