@@ -369,6 +369,28 @@ function RECURSIVE-DLS(node, problem, limit) returns a solution, or failure/cuto
 
 ![Greedy Best First Search](/resources/images/intro_to_ai/greedy_best_first.PNG)
 
+- The algorithm for recursive Best-First search is
+
+```
+function RECURSIVE-BEST-FIRST-SEARCH(problem) returns a solution, or failure
+  return RBFS(problem, MAKE-NODE(problem.INITIAL-STATE), inf)
+
+function RBFS(problem, node, f_limit) returns a solution or failure and a new f-cost limit
+  if problem.GOAL-TEST(node.STATE) then return SOLUTION(node)
+  successors <- []
+  for each action in problem.ACTIONS(node.STATE) do
+    add CHILD-NODE(problem, node, action) into successors
+  if successors is empty then return (failure, inf)
+  for each s in successors do // update f with value from previous search, if any
+    s.f <- max(s.g + s.h, node.f)
+  loop do
+    best <- the lowest f-value node in successors
+    if best.f > f_limit then return (failure, best.f)
+    alternative <- the second-lowest f-value among successors
+    result, best.f <- RBFS(problem, best, min(f_limit, alternative))
+    if result != failure then return result
+```
+
 - Properties of Greedy-Best First search are
   - Complete: Not complete, because it can get stuck if it does not keep track of the visited states. It can be complete if we keep track of the visited state
   - Time Complexity: $$O(b^m)$$, where m is the length of the longest path along the tree. Greedy Best First search can potentially search the entire tree.
@@ -385,7 +407,8 @@ function RECURSIVE-DLS(node, problem, limit) returns a solution, or failure/cuto
 
 - Optimality of A*
   - A heuristic function is **admissible** if it *never overestimates* the cost to reach the goal
-  - $$ \forall n: h(n) <= h*(n) $$, where $$h*(n), is the true cost of the shortest path from node n to the goal.
+  - $$ \forall n: h(n) <= h*(n) $$, where $$h*(n)$$, is the true cost of the shortest path from node n to the goal.
+  - By nature, admissible heuristics are also optimistic. An example of an admissible heuristic is SLD, because the straight line is the shortest distance between any two points, so it cannot overestimate the distance.
   - If h is admissible then the tree search A* is optimal.
 
 - The proof of the optimality of A* follows directly from the following lemma:
