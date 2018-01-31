@@ -361,6 +361,8 @@ function RECURSIVE-DLS(node, problem, limit) returns a solution, or failure/cuto
 
 - **Straight-Line Distance(SLD) Heuristic** - Choose $$h(n)$$, as the straight line distance from node, n, to the goal state
 
+- **Manhattan Distance Heuristic** - Choose $$h(n)$$, as the distance based strictly on vertical and horizontal distance as opposed to the SLD heuristic. This is like measuring the distance from one point to another in the city of Manhattan, which is shaped like a grid.
+
 - **Greedy Best-First search** - $$f(n) = h(n)$$. Consequently, the node that *seems* to be the closest to the goal is expanded first. So it chooses the node with the lowest heuristic first.
 
 - An example of Greedy Best-First search is
@@ -385,3 +387,12 @@ function RECURSIVE-DLS(node, problem, limit) returns a solution, or failure/cuto
   - A heuristic function is **admissible** if it *never overestimates* the cost to reach the goal
   - $$ \forall n: h(n) <= h*(n) $$, where $$h*(n), is the true cost of the shortest path from node n to the goal.
   - If h is admissible then the tree search A* is optimal.
+
+- The proof of the optimality of A* follows directly from the following lemma:
+
+```
+Assume h is admissible.
+Let n be a node such that n.State = goal and n is not the optimal path to the goal.
+Let n' be the first node on the optimal path that is not on the path to n.
+Then A* expands n' before n.
+```
