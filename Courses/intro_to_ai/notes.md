@@ -348,3 +348,40 @@ function RECURSIVE-DLS(node, problem, limit) returns a solution, or failure/cuto
   - Optimality: Optimal, if all the edges have the same cost, similar to BFS
   - Time complexity: $$ O(2b^{(\frac{d}{2})}) = O(b^{(\frac{d}{2})}) $$
   - Space complexity: $$ O(2b^{(\frac{d}{2})}) = O(b^{(\frac{d}{2})}) $$
+
+### Informed(Heuristic) Strategies
+
+#### Best-First Search
+
+- Best-first search is a generalized category of heuristic based search.
+- Informed search strategies use problem-specific knowledge beyond the definition of the problem
+- General Approach: Best-first search is identical to uniform-cost search except that it uses a general *evaluation function* $$f(n)$$, instead of the *cost function* $$g(n)$$, for choosing which node to expand.
+- The evaluation function, $$f(n)$$, often contains a component, *h*, known as the **heuristic function**.
+- $$h(n)$$ is the estimated cost of the cheapest past from the state at node, n, to the goal state
+
+- **Straight-Line Distance(SLD) Heuristic** - Choose $$h(n)$$, as the straight line distance from node, n, to the goal state
+
+- **Greedy Best-First search** - $$f(n) = h(n)$$. Consequently, the node that *seems* to be the closest to the goal is expanded first. So it chooses the node with the lowest heuristic first.
+
+- An example of Greedy Best-First search is
+
+![Greedy Best First Search](/resources/images/intro_to_ai/greedy_best_first.PNG)
+
+- Properties of Greedy-Best First search are
+  - Complete: Not complete, because it can get stuck if it does not keep track of the visited states. It can be complete if we keep track of the visited state
+  - Time Complexity: $$O(b^m)$$, where m is the length of the longest path along the tree. Greedy Best First search can potentially search the entire tree.
+  - Space Complexity: $$O(b^m)$$, we have to remember the whole tree to avoid redundant paths
+
+#### A* search
+
+- A* search is the most popular search algorithm
+- It is similar to Greedy-Best First search, but it also takes the distance already traveled into account.
+- The evaluation function, f, is defined as $$f(n) = g(n) + h(n)$$
+  - $$g(n)$$ - the path cost from the start node to the node n
+  - $$h(n)$$ - the estimated cost of the cheapest path from n to the goal
+  - $$f(n)$$ - the estimated cost of the cheapest solution through n
+
+- Optimality of A*
+  - A heuristic function is **admissible** if it *never overestimates* the cost to reach the goal
+  - $$ \forall n: h(n) <= h*(n) $$, where $$h*(n), is the true cost of the shortest path from node n to the goal.
+  - If h is admissible then the tree search A* is optimal.
