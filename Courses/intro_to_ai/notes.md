@@ -218,7 +218,6 @@ function graph_search(problem):
 
 - BFS expands all the nodes in current level first before expanding the nodes at the next level.
 - BFS always has the shallowest path to every node in the frontier.
-- BFS is optimal and complete.
 - An example of BFS is
 
 ![BFS](/resources/images/intro_to_ai/BFS.PNG)
@@ -346,6 +345,17 @@ function RECURSIVE-DLS(node, problem, limit) returns a solution, or failure/cuto
   - Optimality: Optimal, if all the edges have the same cost, similar to BFS
   - Time complexity: $$ O(2b^{(\frac{d}{2})}) = O(b^{(\frac{d}{2})}) $$
   - Space complexity: $$ O(2b^{(\frac{d}{2})}) = O(b^{(\frac{d}{2})}) $$
+
+### Summary of Uninformed Search Strategies
+
+| Method | Complete?  | Time complexity | Space Complexity | Optimal? |
+| :------------- | :------------- | :------------- | :------------- |
+| BFS      | Yes - If b is finite       |  $$O(b^d)$$       | $$O(b^d)$$       | Only if all edge costs are equal     |
+| DFS      | No      |  $$O(b^m)$$       | $$O(b \cdot m)$$       | No     |
+| Uniform Cost      | Yes - If b is finite     |  $$ O(b^{1 +\lfloor C^{*}/\epsilon \rfloor}) $$       | $$ O(b^{1 +\lfloor C^{*}/\epsilon \rfloor}) $$       | Yes     |
+| Iterative Deepening DFS      | Yes      |  $$O(b^d)$$       | $$O(b \cdot d)$$       | Only if all edge costs are equal     |
+| Bidirectional BFS      | Yes      |  $$ O(b^{(\frac{d}{2})}) $$       | $$ O(b^{(\frac{d}{2})}) $$       | Only if all edge costs are equal     |
+{:.mbtablestyle}
 
 ### Informed(Heuristic) Strategies
 
