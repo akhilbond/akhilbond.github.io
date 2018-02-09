@@ -453,3 +453,55 @@ Then A* expands n' before n.
 - If h is consistent, then the graph search A* is optimal.
 
 #### Designing Heuristics
+
+### Local Search
+
+- Local search is suitable for **optimization problems**, where we plan to find the best state according to a given **objective function**.
+- Local search have two advantages:
+  - They use little memory as they usually don't need to remember paths
+  - They can often find reasonable solutions in large (or infinite) state spaces where systematic search is unsuitable.
+
+#### Hill-climbing search (Greedy-local search)
+
+- Hill-climbing search is just looking at the left and right neighbors of the current position on a "hill", then moving towards the higher valued neighbor compared to the current position.
+- This image summarizes hill-climbing search and shows the difference between a local maximum and global maximum
+
+![Hill-Climbing Search](/resources/images/intro_to_ai/hill-climbing.PNG)
+
+- An algorithm for hill-climbing search is
+
+```
+function HILL-CLIMBING(problem) returns a state that is a local max
+  current <- MAKE-NODE(problem.INITIAL-STATE)
+  loop:
+    neighbor <- highest-valued successor of current
+    if neighbor.VALUE <= current.VALUE then return current.STATE
+    current <- neighbor
+```
+
+- Scenarios where hill-climbing search has trouble:
+  - It gets stuck at plateaus or "flat" local maximums
+  - It also get stuck at ridges. Ridges are a sequence of local maxima that don't directly connect to each other
+
+- How to avoid shoulders?
+  - Starting from a random initial 8-queens state, hill-climbing gets stuck in a local maximum 86% of the time (with an average of 3 steps)
+  and finds the global maximum only 14% (with an average of 4 steps)
+  - Sideways moves
+    - To avoid staying stuck in a shoulder plateau, wee allow hill-climbing to move to neighbor states that have the same value of the current one.
+    - However, infinite loops may occur. We can avoid the infinite loops by limiting the number of sideways moves.
+  - By allowing up to 100 sideways moves in 8-queens problem:
+    - We increase the percentage of problem instances solved by hill-climbing from 14% to 94%
+    - However, each successful instance is solved in 21 steps (on average) and failures (local maxima) are reached after 64 steps (on average)
+
+#### Variants of hill-climbing
+
+- Stochastic hill-climbing
+  - Chooses randomly among the uphill moves, with probabilities that vary with the steepness of the moves
+  - Converges slowly, but explores the state space better, and may find better solutions
+- First-choice hill-climbing
+  - Generates successors randomly until finding one that is better than the current state.
+  - Efficient in high dimensions
+- Random-restart hill-climbing
+  - Repeats the hill-climbing from a randomly generated initial state, until a solution is found.
+  - Guaranteed to eventually find a solution if the state space is finite.
+  - The expected number of restarts is $$\frac{1}{p}$$ if hill-climbing succeeds with probability p at each iteration
