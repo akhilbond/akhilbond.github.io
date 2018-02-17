@@ -564,3 +564,24 @@ function SIMULATED-ANNEALING(problem, schedule) returns a solution state
 - A genetic algorithm consists of the following steps:
   1. Selection: Randomly drawing *k* individuals from the population with probabilities from the population with probabilities to their fitness. The same individual can be selected multiple times.
   2. Crossover: Let $$(s_1 , s_2) $$ be a selected couple of individuals, and let n be the size of the alphabet, and set s[i] be the *i*-th letter in the code of state s.
+    - Uniformly sample a random number $$ i \in [1,n].] $$
+    - Create a new individual $${s'}_{1}$$ that has the code
+    $$ [{s'}_{1}[1], {s'}_{1}[2], ..., {s'}_{1}[i], {s'}_{2}[i+1], {s'}_{2}[i+2], ..., {s'}_{2}[n]] $$
+    - Create a new individual $${s'}_{2}$$ that has the code
+    $$ [{s'}_{2}[1], {s'}_{2}[2], ..., {s'}_{2}[i], {s'}_{1}[i+1], {s'}_{1}[i+2], ..., {s'}_{1}[n]] $$
+  3. Mutation: Each letter in the codes of the new individuals is changed to a random value with a very small probability $$ \eta $$.
+
+### Optimization in continuous spaces
+
+- Suppose that we want to construct three new airports in a given country.
+- Objective: Minimize the distance from each city to its nearest airport.
+- Solution:
+  - Let $$ C_i $$ denote the cities that have airport i as their nearest airport. Let $$(x_i, y_i)$$ be the coordinates of airport i and $$(x_c, y_c)$$ be the coordinates of city c. The objective is to optimize the function:
+
+  $$ f(x_1, y_1, x_2, y_2, x_3, y_3) = \sum_{i=1}^{3} \sum_{c \in C_i} (x_i - x_c)^2 + (y_i - y_c)^2 $$
+
+### Gradient Descent
+
+- A common approach for solving optimization problems consits in computing the gradient of the objective function f, and applying the rule, $$ x <- x - \alpha \nabla f$$
+
+$$ \nabla f = (\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial y_1}, \frac{\partial f}{\partial x_2}, \frac{\partial f}{\partial y_2}, \frac{\partial f}{\partial x_3}, \frac{\partial f}{\partial y_3})
