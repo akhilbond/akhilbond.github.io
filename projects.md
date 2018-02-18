@@ -14,7 +14,7 @@ permalink: /Projects/
 
 - **RescueER**
   - Link: [https://github.com/akhilbond/rescue](https://github.com/akhilbond/rescue)
-  - *Description*: Application that aids first responders in locating and providing aid to those who need help. Users who are victims of a disaster event and in need for emergency response aid will send their GPS coordinates to first responders, who will be able to target those most in need efficiently using geolocation and FLIR thermal imaging technology.
+  - *Description*: Application that aids first responders in locating and providing aid to those who need help. Users who are victims of a disaster event and in need for emergency response aid will send their GPS coordinates to first responders, who will be able to target those most in need efficiently using geolocation and FLIR thermal imaging technology, and AR.
 
 - **BlahBlahAhh**
   - Link: [https://github.com/akhilbond/BlahBlahAhh](https://github.com/akhilbond/BlahBlahAhh)
