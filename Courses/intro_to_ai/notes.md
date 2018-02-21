@@ -585,3 +585,83 @@ function SIMULATED-ANNEALING(problem, schedule) returns a solution state
 - A common approach for solving optimization problems consits in computing the gradient of the objective function f, and applying the rule, $$ x <- x - \alpha \nabla f$$
 
 $$ \nabla f = (\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial y_1}, \frac{\partial f}{\partial x_2}, \frac{\partial f}{\partial y_2}, \frac{\partial f}{\partial x_3}, \frac{\partial f}{\partial y_3})
+
+### Adversarial Search
+
+- Games
+  - **Multiagent environments** are environments where more than one agent is acting, simultaneously or at different times.
+  - **Contingency plans** are necessary to account for the unpredictability of the other agents.
+  - Each agent has its own personal **utility function**.
+  - The corresponding decision-making problem is called a game.
+  - A game is competitive if the utilities of different agents are maximized in different states.
+  - In **zero-sum games**, the sum of the utilities of all agents is constant.
+  - Zero-sum games are purely competitive.
+
+- A game is described by:
+  - $$ S_0 $$ - the initial state (How is the game setup at the start?)
+  - **Players(s)** - Indicates which player has the move in state s (Who's turn is it?)
+  - **Actions(s)** - Set of legal actions in state s
+  - **Result(s, a)** - Returns the next state after we play action a in state s
+  - **Terminal-Test(s)** - Indicates if s is a terminal state
+  - **Utility(s, p)** - (also called objective or payoff function) - defines a numerical value for a game that ends in terminal state s for player p
+
+
+#### Minimax algorithm
+
+- Suppose that there are two players in a zero sum game:
+  - We call our player **MAX**, she tries to maximize our utility.
+  - We call our opponent **MIN**, she tries to minimize our utility
+
+- Algorithm for Minimax
+
+```
+function MINIMAX-DECISION(state) returns an action
+  return argmax(a in ACTIONS(s))(MIN-VALUE(RESULT(state, a)))
+
+function MAX-VALUE(state) returns a utility value
+  if TERMINAL-TEST(state) then return UTILITY(state)
+  v <- -inf
+  for each a in ACTIONS(state) do
+    v <- MAX(v, MIN-VALUE(RESULT(s, a)))
+  return v
+
+function MIN-VALUE(state) returns a utility value
+  if TERMINAL-TEST(state) then return UTILITY(state)
+  v <- inf
+  for each a in ACTIONS(state) do
+    v <- MIN(v, MAX-VALUE(RESULT(s, a)))
+  return v
+```
+
+- Some issues with Minimax:
+  - What if our opponent is not optimal? Can we still learn the opponent's behavior?
+  - What if our player is trying to fool us by behaving in a different way?
+    - AKA hustling our player
+
+- Minimax strategy in multiplayer games
+  - We have 3 players: A, B, and C
+  - The utilities are represented by a 3-dimensional vector: $$ (v_A, v_B, v_c) $$
+  - We apply the same principle; assume that every player is optimal
+  - If the game is not zero-sum, implicit collaborations may occur.
+
+#### Alpha-Beta Pruning
+
+- Time is a major issue in game search trees. Searching the complete tree takes $$ O(b^m) $$ operations, where b is the branching factor and m is the depth of the tree.
+- Do we really need to parse the whole tree to find a minimax strategy? Is there any way to reduce the number of operations?
+- When we go through a game search tree, we can remove the other neighbor branches if we get a yield lower than or equal to the first highest yield found.
+
+- Example of alpha-beta pruning:
+
+![Alpha-Beta Pruning](/resources/images/intro_to_ai/alpha-beta.PNG)
+
+#### Imperfect fast predictions
+
+- The minimax algorithm generates the entire search tree
+- The alpha-beta pruning algorithm allows us to prune large parts of the search tree, but its complexity is still exponential in the branching factor (number of actions).
+- This is still non-practical because moves should be decided quickly.
+
+- Cutting off the search
+  - A cutoff test is used to decide when to stop looking further in the tree
+  - A heuristic **evaluation function** is used to estimate the utility where the search is cutoff
+
+- Evaluation functions must be computed very quickly
