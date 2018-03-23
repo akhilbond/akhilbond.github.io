@@ -22,6 +22,7 @@ Some of the languages that I'm familiar with are :
 
 <br>
 
+- [AI Research](research/)
 - [Intro to AI - Udacity course](udacity_ai/)
 - [Web Dev - Udemy course](webdev/)
 
