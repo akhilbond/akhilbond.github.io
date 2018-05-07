@@ -4,7 +4,7 @@ title: Web Development
 permalink: /Courses/webdev/
 ---
 
-- Notes are from [Udemy Web Developer Bootcamp course](https://www.udemy.com/the-web-developer-bootcamp/)
+- Notes are from the [Udemy Web Developer Bootcamp course](https://www.udemy.com/the-web-developer-bootcamp/)
 
 # HTML
 - HTML allows us to specify the exact formatting of text over the internet just by using text and a few simple tags.
