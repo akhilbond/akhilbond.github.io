@@ -8,8 +8,6 @@ title: Home
 
 <div class="home-double">
 
-	</br>
-
 
 	<div class="right-section">
 		<p> I am currently a student studying <a href="http://ece.rutgers.edu">Computer and Electrical Engineering</a> at Rutgers University, The State University of New Jersey, New Brunswick. Expected to graduate in 2018. </p>
@@ -26,9 +24,6 @@ title: Home
 
 
 		<p>
-			</br>
-			</br>
-			</br>
 			I consider robotics, automation, computer vision, and computer programming as my main fields of interest, but I also have experience with other technologies. You can see my <a href="/about">About page</a> found at the top of this website for more information
 			including my <a href="https://www.linkedin.com/in/akhileshbondlela?trk=hp-identity-name">LinkedIn profile</a>.
 		</p>
