@@ -94,6 +94,8 @@ permalink: /Courses/TestDev/
     - Latency Monkey
     - Janitor Monkey
     - Doctor Monkey
+    - Conformity Monkey
+    - Security Monkey
 
 ## Testing Concepts
 
@@ -114,3 +116,27 @@ permalink: /Courses/TestDev/
       - StartsWith - ```Assert.StartsWith("foo", someString);```
     - Fluent programming
       - Similar assertion statements, however, the statements flow more logically and are easier to read.
+
+- Test execution
+  - Tests are executed using a *Test Runner*. Some test runners run *synchronously*, which means they execute only a single test and test suite is executed at a time. Other test runners run *asynchronously*, which means they execute all tests and test suites completely independent of each other at the same time.
+  - If a synchronous testing scenario is tested with an asynchronous test runner, it may cause *race conditions* as it is unpredictable which piece of code is run first.
+
+- Insights from Testing
+  - One of the most obvious insights is whether the software is ready to be released.
+  - How much of my code is being tested?
+  - Are all of my dependencies working?
+  - Is my code written well?
+
+- Business Insights from testing
+  - Did any previously working features break?
+  - How does the new code perform under load?
+  - Were there breaking changes that can stop a partners' code from working?
+
+
+## TDD Examples
+
+- *Dotnet Watcher* is used to watch our code and also allows us to rerun portions of code that have been modified.
+- Further information about unit testing with MSTest and .NET Core are located [here](http://bit.ly/2nmch5z).
+
+- FizzBuzz
+  - When given a positive number N, if that number is divisible by 3, it returns Fizz. If the number is divisible by 5, then it returns Buzz. If it is divisible by 3 and 5, it returns FizzBuzz. If it is divisible by neither 3 nor 5, then we just return the number.
