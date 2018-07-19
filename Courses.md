@@ -24,7 +24,7 @@ Some of the languages that I'm familiar with are :
 
 - [Intro to AI - Udacity course](udacity_ai/)
 - [Web Dev - Udemy course](webdev/)
-- [Big Data: The Big Picture](bigdata/)
+- [Big Data: The Big Picture](big_data_intro/)
 
 <h1><u>Courses</u></h1>
 

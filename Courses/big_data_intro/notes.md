@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Big Data: The Big Picture Notes
-permalink: /Courses/bigdata/
+permalink: /Courses/big_data_intro
 ---
 
 # This course is a Pluralsight course taught by Andrew J. Brust.
