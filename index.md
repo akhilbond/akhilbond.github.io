@@ -1,4 +1,7 @@
-<!-- --- layout: default title: Home --- -->
+---
+layout: default
+title: Home
+---
 
 
 <h1 style="text-align:center">Akhil Bondlela</h1>
