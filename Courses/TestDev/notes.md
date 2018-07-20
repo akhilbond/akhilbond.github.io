@@ -140,3 +140,55 @@ permalink: /Courses/TestDev/
 
 - FizzBuzz
   - When given a positive number N, if that number is divisible by 3, it returns Fizz. If the number is divisible by 5, then it returns Buzz. If it is divisible by 3 and 5, it returns FizzBuzz. If it is divisible by neither 3 nor 5, then we just return the number.
+
+## Strategies and Techniques for Testing Code
+
+- Dependency Injection
+  - A technique whereby one object supplies the dependencies of another object.
+  - A *dependency* is an object that can be used.
+  - An *injection* is the passing of a dependency to a dependent object that would use it.
+
+- Types of injections
+  - Constructor Injection - Providing dependencies through a class constructor.
+  - Property/Setter Injection - Using a property or setter method to inject a dependency.
+  - Interface Injection - Client defines an interface that describes how dependencies are injected into it.
+
+- Test Doubles - A generic term for any kind of pretend object used in place of a real object for testing purposes.
+
+- Types of test doubles
+  - Stubs - Provides canned answers to call made during the test
+  - Mocks - pre-programmed with expectations which for a specification to be verified.
+  - Fakes
+  - Spies
+
+- Testing Best Practices
+  - Treat test code like production code
+    - Write readable and maintainable test code.
+    - Address both positive and negative test cases.
+    - Separate common set-up and teardown logic.
+  - Focus only on necessary values and results
+    - Only assert on values required to verify the test is passing
+  - Review tests and test practices with team
+    - Effective techniques
+    - Catching bad habits
+    - Common challenges
+
+## Test Driven Development Gotchas
+
+- Testing Anti-patterns
+  - Dependencies between tests
+    - Execution order of tests shouldn't matter
+    - Interdependent tests can cause cascading failures and false positives
+    - Serial execution vs. parallel execution
+  - Testing Implementation details
+    - Tests should focus on "what" not the "how"
+    - Testing implementation details leads to brittle tests that break when refactoring.
+  - Slow running tests
+    - Prevents rapid red-green-refactor cycles
+    - Warning sign that code might be too coupled
+    - Warning sign that code might not be very testable
+
+- Limitations of test driven development
+  - Possible *holes* in tests
+  - TDD by itself is not sufficient
+  - Management support is vital
