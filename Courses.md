@@ -9,7 +9,7 @@ Some of the languages that I'm familiar with are :
 
 - HTML
 - CSS
-- Java
+- [Java](Java/)
 - [C++](C++/)
 - LabVIEW
 - SAS
